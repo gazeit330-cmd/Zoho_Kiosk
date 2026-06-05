@@ -1,369 +1,802 @@
 
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Desserts Menu</title>
+<!DOCTYPE html>
+<html>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<head>
+
+<meta charset="UTF-8">
+
+<title>Bread & Roti Menu</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-    background:#eef2ff;
-    padding:25px;
+background:#fff8f0;
+padding:20px;
 }
 
 .container{
-    background:white;
-    border-radius:24px;
-    padding:30px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
-}
-
-.topbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:35px;
+background:#fff;
+padding:30px;
+border-radius:25px;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
 .logo{
-    font-size:38px;
-    font-weight:700;
-    color:#4338ca;
+font-size:34px;
+font-weight:700;
+color:#c2410c;
+margin-bottom:25px;
 }
 
 .logo span{
-    color:#6366f1;
-    font-weight:400;
+color:#fb923c;
 }
 
 .banner{
-    background:linear-gradient(to right,#4f46e5,#6366f1);
-    border-radius:24px;
-    padding:40px;
-    color:white;
-    margin-bottom:35px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:20px;
+background:linear-gradient(to right,#fb923c,#fdba74);
+padding:35px;
+border-radius:25px;
+color:white;
+margin-bottom:30px;
 }
 
 .banner h1{
-    font-size:42px;
-    margin-bottom:10px;
+font-size:38px;
+margin-bottom:10px;
 }
 
 .banner p{
-    opacity:0.95;
-    line-height:1.6;
-    max-width:550px;
-}
-
-.offer-box{
-    background:white;
-    color:#6366f1;
-    padding:18px 25px;
-    border-radius:18px;
-    font-size:20px;
-    font-weight:700;
+font-size:16px;
+line-height:1.7;
 }
 
 .search-section{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:30px;
-    gap:20px;
-    flex-wrap:wrap;
+display:flex;
+gap:15px;
+margin-bottom:30px;
 }
 
-.search-box{
-    flex:1;
-    min-width:250px;
+.search-section input{
+flex:1;
+padding:15px;
+border-radius:12px;
+border:2px solid #fed7aa;
+outline:none;
+font-size:15px;
 }
 
-.search-box input{
-    width:100%;
-    padding:16px 20px;
-    border-radius:14px;
-    border:2px solid #c7d2fe;
-    outline:none;
-    font-size:15px;
-}
-
-.filter-btn{
-    background:#6366f1;
-    color:white;
-    border:none;
-    padding:16px 28px;
-    border-radius:14px;
-    cursor:pointer;
-    font-weight:600;
-}
-
-.filter-btn:hover{
-    background:#4f46e5;
+.search-btn{
+background:#fb923c;
+color:white;
+border:none;
+padding:15px 25px;
+border-radius:12px;
+cursor:pointer;
+font-weight:600;
 }
 
 .cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:28px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
 }
 
 .card{
-    background:white;
-    border-radius:22px;
-    overflow:hidden;
-    border:1px solid #c7d2fe;
-    transition:0.3s;
-    box-shadow:0 4px 14px rgba(0,0,0,0.06);
-}
-
-.card:hover{
-    transform:translateY(-6px);
+background:white;
+border-radius:20px;
+overflow:hidden;
+border:1px solid #fed7aa;
+box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
 
 .card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
+width:100%;
+height:220px;
+object-fit:cover;
 }
 
 .card-content{
-    padding:22px;
-}
-
-.top-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:12px;
+padding:20px;
 }
 
 .food-name{
-    font-size:24px;
-    font-weight:600;
-    color:#4338ca;
+font-size:22px;
+font-weight:600;
+color:#c2410c;
+margin-bottom:8px;
 }
 
 .price{
-    color:#6366f1;
-    font-size:22px;
-    font-weight:700;
+font-size:20px;
+font-weight:700;
+color:#fb923c;
+margin-bottom:8px;
 }
 
 .rating{
-    color:#6366f1;
-    font-weight:600;
-    margin-bottom:12px;
+color:#fb923c;
+margin-bottom:10px;
 }
 
 .description{
-    color:#666;
-    line-height:1.6;
-    font-size:14px;
-    margin-bottom:18px;
+font-size:14px;
+line-height:1.6;
+color:#666;
+margin-bottom:18px;
 }
 
 .bottom-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-.dessert-badge{
-    background:#e0e7ff;
-    color:#4338ca;
-    padding:8px 14px;
-    border-radius:30px;
-    font-size:13px;
-    font-weight:600;
+.veg{
+background:#ffedd5;
+padding:8px 14px;
+border-radius:30px;
+font-size:13px;
+font-weight:600;
+color:#c2410c;
 }
 
-.order-btn{
-    background:#6366f1;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    border-radius:12px;
-    cursor:pointer;
-    font-weight:600;
+.add-btn{
+background:#fb923c;
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+min-width:85px;
 }
 
-.order-btn:hover{
-    background:#4f46e5;
+.add-btn:hover{
+background:#ea580c;
 }
 
 .footer{
-    margin-top:40px;
-    background:#4338ca;
-    color:white;
-    border-radius:20px;
-    padding:22px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:20px;
-}
-
-.footer-left{
-    display:flex;
-    gap:30px;
-    font-weight:500;
+margin-top:35px;
+background:#c2410c;
+padding:20px;
+border-radius:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+color:white;
+flex-wrap:wrap;
+gap:15px;
 }
 
 .checkout-btn{
-    background:#6366f1;
-    color:white;
-    border:none;
-    padding:16px 28px;
-    border-radius:14px;
-    font-size:16px;
-    font-weight:600;
-    cursor:pointer;
+background:#fb923c;
+padding:14px 24px;
+border-radius:12px;
+text-decoration:none;
+color:white;
+font-weight:600;
 }
 
-.checkout-btn:hover{
-    background:#4f46e5;
+@media(max-width:768px){
+
+.search-section{
+flex-direction:column;
+}
+
+.banner h1{
+font-size:28px;
+}
+
+}
+
+/* QUANTITY BOX */
+
+    .quantity-box{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      background:#ffeddf;
+      padding:8px 14px;
+      border-radius:12px;
+      width:fit-content;
+    }
+
+    .quantity-btn{
+      width:32px;
+      height:32px;
+      border:none;
+      border-radius:8px;
+      background:#fb923c;
+      color:white;
+      font-size:20px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    .quantity-number{
+      font-size:18px;
+      font-weight:600;
+      min-width:20px;
+      text-align:center;
+      color:#e16f12;
+    }
+
+
+/* Suggestions*/
+ #suggestions{
+      background: white;
+      border-radius: 12px;
+      margin-top: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px
+    rgba(0,0,0,0.08);
+    }
+    .suggestion-item{
+  padding:14px 18px;
+  cursor:pointer;
+  transition:0.3s;
+  border-bottom:1px solid #f1f1f1;
+}
+
+.suggestion-item:hover{
+  background:#dcfce7;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<div class="topbar">
-    <div class="logo">
-        <span>restaurant</span> DESSERTS
-    </div>
+<div class="logo">
+<span>restaurant</span> BREAD & ROTI
 </div>
 
-<div class="banner">
-    <div>
-        <h1>Sweet Desserts</h1>
-        <p>
-            Treat yourself with delicious desserts, cakes, ice creams,
-            and sweet delights crafted with love and premium ingredients.
-        </p>
-    </div>
+<div class="banner" >
 
-    <div class="offer-box">
-        🍨 Sweet Special
-    </div>
+<h1>Fresh Bread & Roti</h1>
+
+<p>
+Enjoy soft rotis, butter naan, garlic naan,
+laccha paratha and freshly baked breads served hot.
+</p>
+
 </div>
+
+<!-- SEARCH -->
 
 <div class="search-section">
-    <div class="search-box">
-        <input type="text" placeholder="Search desserts...">
-    </div>
 
-    <button class="filter-btn">
-        🔍 Filter
-    </button>
+<input type="text" id="searchInput" placeholder="Search breads and rotis..." onkeyup="searchFood()">
+
+<button class="search-btn">
+🔍 Search
+</button>
+
 </div>
+<div id="suggestions"></div>
+
+<!-- CARDS -->
 
 <div class="cards">
 
-    <!-- Chocolate Brownie -->
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c" alt="Chocolate Brownie">
+<!-- CARD 1 -->
 
-        <div class="card-content">
-            <div class="top-row">
-                <div class="food-name">Chocolate Brownie</div>
-                <div class="price">₹180</div>
-            </div>
+<div class="card" data-name="butter naan">
 
-            <div class="rating">⭐ 4.9</div>
+<img src="https://maayeka.com/wp-content/uploads/2025/10/butter-naan-tawa-naan-1-of-1-500x500.jpg">
 
-            <div class="description">
-                Rich chocolate brownie served warm with chocolate sauce.
-            </div>
+<div class="card-content">
 
-            <div class="bottom-row">
-                <div class="dessert-badge">🍫 DESSERT</div>
-                <button class="order-btn">+ Add</button>
-            </div>
+<div class="food-name">
+Butter Naan
+</div>
+
+<div class="price">
+₹40
+</div>
+
+<div class="rating">
+⭐ 4.9
+</div>
+
+<div class="description">
+Soft tandoor naan topped with fresh butter.
+</div>
+
+<div class="bottom-row">
+
+<div class="veg">
+🟢 VEG
+</div>
+
+<div class="quantity-box">
+
+        <button class="quantity-btn"
+                      onclick="decreaseQuantity(this)">
+                −
+        </button>
+
+        <div class="quantity-number">
+                0
         </div>
-    </div>
 
-    <!-- Vanilla Ice Cream -->
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb" alt="Vanilla Ice Cream">
+        <button class="quantity-btn"
+                      onclick="increaseQuantity(this)">
+                +
+        </button>
 
-        <div class="card-content">
-            <div class="top-row">
-                <div class="food-name">Vanilla Ice Cream</div>
-                <div class="price">₹120</div>
-            </div>
-
-            <div class="rating">⭐ 4.8</div>
-
-            <div class="description">
-                Creamy vanilla ice cream topped with nuts and chocolate syrup.
-            </div>
-
-            <div class="bottom-row">
-                <div class="dessert-badge">🍦 DESSERT</div>
-                <button class="order-btn">+ Add</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Gulab Jamun -->
-    <div class="card">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/071/459/415/small/gulab-jamun-traditional-indian-dessert-with-syrup-and-silver-leaf-free-photo.jpg" alt="Gulab Jamun">
-
-        <div class="card-content">
-            <div class="top-row">
-                <div class="food-name">Gulab Jamun</div>
-                <div class="price">₹140</div>
-            </div>
-
-            <div class="rating">⭐ 4.9</div>
-
-            <div class="description">
-                Soft and juicy gulab jamun served warm in sugar syrup.
-            </div>
-
-            <div class="bottom-row">
-                <div class="dessert-badge">🍮 DESSERT</div>
-                <button class="order-btn">+ Add</button>
-            </div>
-        </div>
     </div>
 
 </div>
+
+</div>
+
+</div>
+
+<!-- CARD 2 -->
+
+<div class="card" data-name="garlic naan">
+
+<img src="https://www.chompslurrpburp.com/wp-content/uploads/2020/05/naan-cover-800x500.jpg">
+
+<div class="card-content">
+
+<div class="food-name">
+Garlic Naan
+</div>
+
+<div class="price">
+₹55
+</div>
+
+<div class="rating">
+⭐ 4.8
+</div>
+
+<div class="description">
+Fresh naan topped with garlic and butter.
+</div>
+
+<div class="bottom-row">
+
+<div class="veg">
+🟢 VEG
+</div>
+
+<div class="quantity-box">
+
+        <button class="quantity-btn"
+                      onclick="decreaseQuantity(this)">
+                −
+        </button>
+
+        <div class="quantity-number">
+                0
+        </div>
+
+        <button class="quantity-btn"
+                      onclick="increaseQuantity(this)">
+                +
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD 3 -->
+
+<div class="card" data-name="tandoori roti">
+
+<img src="https://static.toiimg.com/photo/75542650.cms">
+
+<div class="card-content">
+
+<div class="food-name">
+Tandoori Roti
+</div>
+
+<div class="price">
+₹25
+</div>
+
+<div class="rating">
+⭐ 4.7
+</div>
+
+<div class="description">
+Traditional whole wheat roti baked in clay oven.
+</div>
+
+<div class="bottom-row">
+
+<div class="veg">
+🟢 VEG
+</div>
+
+<div class="quantity-box">
+
+        <button class="quantity-btn"
+                      onclick="decreaseQuantity(this)">
+                −
+        </button>
+
+        <div class="quantity-number">
+                0
+        </div>
+
+        <button class="quantity-btn"
+                      onclick="increaseQuantity(this)">
+                +
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD 4 -->
+
+<div class="card" data-name="laccha paratha">
+
+<img src="https://static.toiimg.com/thumb/85887113.cms?imgsize=119034&width=800&height=800">
+
+<div class="card-content">
+
+<div class="food-name">
+Laccha Paratha
+</div>
+
+<div class="price">
+₹60
+</div>
+
+<div class="rating">
+⭐ 4.9
+</div>
+
+<div class="description">
+Crispy layered paratha cooked with butter.
+</div>
+
+<div class="bottom-row">
+
+<div class="veg">
+🟢 VEG
+</div>
+
+<div class="quantity-box">
+
+        <button class="quantity-btn"
+                      onclick="decreaseQuantity(this)">
+                −
+        </button>
+
+        <div class="quantity-number">
+                0
+        </div>
+
+        <button class="quantity-btn"
+                      onclick="increaseQuantity(this)">
+                +
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
 
 <div class="footer">
-    <div class="footer-left">
-        <div>🏠 Home</div>
-        <div>📞 Staff</div>
-        <div>❓ Help</div>
-    </div>
 
-    <button class="checkout-btn">
-        🛒 View Cart
-    </button>
+
+<div>
+<a href="./Restaurant_menu.html" class="home">🏠 Home</a> &nbsp;&nbsp; 📞 Staff &nbsp;&nbsp; ❓ Help
+</div>
+
+<a href="./Place_order.html" class="checkout-btn">
+🛒 View Cart →
+</a>
+
 </div>
 
 </div>
+
+<script>
+
+const foodItems = [
+  "Butter Naan",
+  "Tandoori Roti",
+  "Lachha Paratha"
+];
+
+function searchFood()
+{
+    let input =
+    document.getElementById("searchInput")
+    .value.toLowerCase();
+
+    let suggestions =
+    document.getElementById("suggestions");
+
+    suggestions.innerHTML = "";
+
+    let cards =
+    document.querySelectorAll(".card");
+
+
+    // SHOW/HIDE CARDS
+
+    cards.forEach(card => {
+
+      let foodName =
+      card.getAttribute("data-name");
+
+      if(foodName.includes(input))
+      {
+          card.style.display = "";
+      }
+      else
+      {
+          card.style.display = "none";
+      }
+
+    });
+
+
+    // CLEAR IF EMPTY
+
+    if(input === "")
+    {
+        cards.forEach(card => {
+          card.style.display = "";
+        });
+
+        return;
+    }
+
+
+    // DROPDOWN SUGGESTIONS
+
+    let filteredItems =
+    foodItems.filter(item =>
+      item.toLowerCase().includes(input)
+    );
+
+    filteredItems.forEach(item => {
+
+      suggestions.innerHTML += `
+
+        <div class="suggestion-item"
+             onclick="selectFood('${item}')">
+
+          ${item}
+
+        </div>
+
+      `;
+
+    });
+
+}
+
+
+function selectFood(item)
+{
+    document.getElementById("searchInput").value = item;
+
+    document.getElementById("suggestions").innerHTML = "";
+
+    let cards =
+    document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+
+      let foodName =
+      card.getAttribute("data-name");
+
+      if(foodName === item.toLowerCase())
+      {
+          card.style.display = "";
+      }
+      else
+      {
+          card.style.display = "none";
+      }
+
+    });
+
+}
+
+</script>
+
+
+<script>
+
+let cart =
+JSON.parse(sessionStorage.getItem("restaurantCart")) || [];
+
+function increaseQuantity(button)
+{
+    let quantityElement =
+    button.parentElement.querySelector(".quantity-number");
+
+    let quantity =
+    parseInt(quantityElement.innerText);
+
+    quantity++;
+
+    quantityElement.innerText = quantity;
+
+
+    // CARD DETAILS
+
+    let card =
+    button.closest(".card");
+
+    let name =
+    card.querySelector(".food-name").innerText;
+
+    let price =
+    card.querySelector(".price").innerText;
+
+    let image =
+    card.querySelector("img").src;
+
+    let description =
+    card.querySelector(".description").innerText;
+
+
+    // REMOVE OLD ENTRY
+
+    cart = cart.filter(item => item.name !== name);
+
+
+    // ADD UPDATED ENTRY
+
+    cart.push({
+        name:name,
+        price:price,
+        image:image,
+        description:description,
+        quantity:quantity
+    });
+
+
+    // SAVE TO LOCAL STORAGE
+
+    sessionStorage.setItem(
+      "restaurantCart",
+      JSON.stringify(cart)
+    );
+}
+
+
+
+function decreaseQuantity(button)
+{
+    let quantityElement =
+    button.parentElement.querySelector(".quantity-number");
+
+    let quantity =
+    parseInt(quantityElement.innerText);
+
+    if(quantity > 0)
+    {
+        quantity--;
+    }
+
+    quantityElement.innerText = quantity;
+
+
+    let card =
+    button.closest(".card");
+
+    let name =
+    card.querySelector(".food-name").innerText;
+
+
+    // UPDATE CART
+
+    cart.forEach(item => {
+
+      if(item.name === name)
+      {
+          item.quantity = quantity;
+      }
+
+    });
+
+
+    // REMOVE ZERO QUANTITY ITEMS
+
+    cart = cart.filter(item => item.quantity > 0);
+
+
+    sessionStorage.setItem(
+      "restaurantCart",
+      JSON.stringify(cart)
+    );
+}
+
+</script>
+
+<script>
+
+function goToCheckout()
+{
+    //sessionStorage.removeItem("restaurantCart");
+    
+    sessionStorage.setItem(
+        "restaurantCart",
+        JSON.stringify(cart)
+    );
+
+    window.location.href = "./Place_order.html"
+    // "https://creatorapp.zoho.in/demo2gazeit/environment/development/zoho-kiosk-v1-0/page-embed/Demo_Place_order";
+}
+</script>
+
+
+<script>
+// Stores the changes in the place order page in starter page
+window.onload = function()
+{
+    let savedCart =
+    JSON.parse(
+        sessionStorage.getItem("restaurantCart")
+    ) || [];
+
+    savedCart.forEach(item => {
+
+        document
+        .querySelectorAll(".card")
+        .forEach(card => {
+
+            let foodName =
+            card.querySelector(".food-name")
+            .innerText;
+
+            if(foodName === item.name)
+            {
+                card.querySelector(
+                    ".quantity-number"
+                ).innerText =
+                item.quantity;
+            }
+
+        });
+
+    });
+}
+
+</script>
+
 
 </body>
 </html>

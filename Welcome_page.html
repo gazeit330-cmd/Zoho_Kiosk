@@ -1,0 +1,490 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Zoho Kiosk</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#f4f6fb;
+}
+
+/* MAIN WRAPPER */
+
+.page{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+/* HEADER */
+
+.header{
+
+    height:90px;
+
+    background:linear-gradient(90deg,#0f172a,#111827);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 40px;
+
+    color:white;
+
+    flex-shrink:0;
+}
+
+.logo{
+    font-size:34px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#FFD166;
+}
+
+.lang-btn{
+
+    background:rgba(255,255,255,0.12);
+
+    border:1px solid rgba(255,255,255,0.2);
+
+    color:white;
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    font-size:14px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.lang-btn:hover{
+    background:rgba(255,255,255,0.2);
+}
+
+/* MAIN CONTENT */
+
+.main{
+
+    flex:1;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px 40px;
+
+    overflow:hidden;
+}
+
+.hero{
+
+    width:100%;
+
+    max-width:1300px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    align-items:center;
+
+    gap:50px;
+}
+
+/* LEFT */
+
+.left-content h4{
+
+    color:#f59e0b;
+
+    font-size:16px;
+
+    letter-spacing:3px;
+
+    margin-bottom:15px;
+}
+
+.left-content h1{
+
+    font-size:72px;
+
+    line-height:1.05;
+
+    color:#0f172a;
+
+    font-weight:800;
+
+    margin-bottom:20px;
+}
+
+.left-content h1 span{
+    color:#2e7d32;
+}
+
+.left-content p{
+
+    color:#64748b;
+
+    font-size:18px;
+
+    line-height:1.7;
+
+    max-width:520px;
+
+    margin-bottom:35px;
+}
+
+/* BUTTONS */
+
+.action-buttons{
+    display:flex;
+    gap:20px;
+}
+
+.start-btn{
+
+    background:#2e7d32;
+
+    color:white;
+
+    padding:18px 34px;
+
+    border-radius:16px;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+.start-btn:hover{
+    transform:translateY(-3px);
+}
+
+.offer-btn{
+
+    background:white;
+
+    color:#111827;
+
+    padding:18px 34px;
+
+    border-radius:16px;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    border:1px solid #ddd;
+
+    transition:0.3s;
+}
+
+.offer-btn:hover{
+    background:#f3f4f6;
+}
+
+/* RIGHT IMAGE */
+
+.right-content{
+    display:flex;
+    justify-content:center;
+}
+
+.food-card{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:35px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,0.12);
+
+    width:100%;
+
+    max-width:520px;
+}
+
+.food-card img{
+
+    width:100%;
+
+    height:420px;
+
+    object-fit:cover;
+
+    border-radius:25px;
+}
+
+.food-info{
+
+    margin-top:20px;
+
+    text-align:center;
+}
+
+.food-info h2{
+
+    font-size:32px;
+
+    color:#111827;
+
+    margin-bottom:10px;
+}
+
+.food-info p{
+
+    color:#64748b;
+
+    font-size:16px;
+}
+
+/* FOOTER */
+
+.footer{
+
+    height:75px;
+
+    background:white;
+
+    border-top:1px solid #e5e7eb;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:20px;
+
+    flex-shrink:0;
+}
+
+.footer-box{
+
+    min-width:170px;
+
+    text-align:center;
+
+    padding:14px 20px;
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    font-size:15px;
+}
+
+.home{
+    background:#f3f4f6;
+}
+
+.help{
+    background:#f3f4f6;
+}
+
+.cart{
+
+    background:#2e7d32;
+
+    color:white;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .left-content p{
+        margin:auto;
+        margin-bottom:35px;
+    }
+
+    .action-buttons{
+        justify-content:center;
+    }
+
+    .left-content h1{
+        font-size:52px;
+    }
+
+    .food-card img{
+        height:320px;
+    }
+}
+
+@media(max-width:768px){
+
+    html,body{
+        overflow:auto;
+    }
+
+    .page{
+        height:auto;
+    }
+
+    .header{
+        padding:15px 20px;
+        height:auto;
+        flex-wrap:wrap;
+        gap:10px;
+    }
+
+    .logo{
+        font-size:26px;
+    }
+
+    .main{
+        padding:30px 20px;
+    }
+
+    .left-content h1{
+        font-size:40px;
+    }
+
+    .left-content p{
+        font-size:15px;
+    }
+
+    .action-buttons{
+        flex-direction:column;
+    }
+
+    .footer{
+        flex-wrap:wrap;
+        height:auto;
+        padding:15px;
+    }
+
+    .footer-box{
+        min-width:130px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="logo">
+        🍴 ZOHO <span>KIOSK</span>
+    </div>
+
+    <button class="lang-btn">
+        🌐 Language
+    </button>
+
+</header>
+
+<!-- MAIN -->
+
+<main class="main">
+
+<div class="hero">
+
+    <!-- LEFT -->
+
+    <div class="left-content">
+
+        <h4>WELCOME TO DELICIOUS BITES</h4>
+
+        <h1>
+            The Ultimate <br>
+            Dining <span>Experience</span>
+        </h1>
+
+        <p>
+            Enjoy restaurant-style ordering with a modern self-service kiosk.
+            Fast ordering, delicious meals, and a beautiful dining experience.
+        </p>
+
+        <div class="action-buttons">
+
+            <a href="#Page:Restaurant_Menu" class="start-btn">
+                Start Your Order
+            </a>
+
+            
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT -->
+
+    <div class="right-content">
+
+        <div class="food-card">
+
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
+
+            <div class="food-info">
+
+                <h2>Zoho Royal Meal</h2>
+
+                <p>
+                    Signature chef-crafted special meal
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</main>
+
+<!-- FOOTER -->
+
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,438 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Main Course Menu</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#fff7ed;
+    padding:25px;
+}
+
+.container{
+    background:white;
+    border-radius:24px;
+    padding:30px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* HEADER */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+}
+
+.logo{
+    font-size:38px;
+    font-weight:700;
+    color:#92400e;
+}
+
+.logo span{
+    color:#f59e0b;
+    font-weight:400;
+}
+
+.table-box{
+    background:#fef3c7;
+    color:#92400e;
+    padding:12px 24px;
+    border-radius:40px;
+    font-weight:600;
+}
+
+/* BANNER */
+
+.banner{
+    background:linear-gradient(to right,#d97706,#f59e0b);
+    border-radius:24px;
+    padding:40px;
+    color:white;
+    margin-bottom:35px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.banner h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.banner p{
+    opacity:0.95;
+    line-height:1.6;
+    max-width:550px;
+}
+
+.offer-box{
+    background:white;
+    color:#f59e0b;
+    padding:18px 25px;
+    border-radius:18px;
+    font-size:20px;
+    font-weight:700;
+}
+
+/* SEARCH */
+
+.search-section{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.search-box{
+    flex:1;
+    min-width:250px;
+}
+
+.search-box input{
+    width:100%;
+    padding:16px 20px;
+    border-radius:14px;
+    border:2px solid #fde68a;
+    outline:none;
+    font-size:15px;
+}
+
+.filter-btn{
+    background:#f59e0b;
+    color:white;
+    border:none;
+    padding:16px 28px;
+    border-radius:14px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.filter-btn:hover{
+    background:#d97706;
+}
+
+/* FOOD GRID */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:28px;
+}
+
+.card{
+    background:white;
+    border-radius:22px;
+    overflow:hidden;
+    border:1px solid #fde68a;
+    transition:0.3s;
+    box-shadow:0 4px 14px rgba(0,0,0,0.06);
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:22px;
+}
+
+.top-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+.food-name{
+    font-size:24px;
+    font-weight:600;
+    color:#92400e;
+}
+
+.price{
+    color:#f59e0b;
+    font-size:22px;
+    font-weight:700;
+}
+
+.rating{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin-bottom:12px;
+    color:#f59e0b;
+    font-weight:600;
+}
+
+.description{
+    color:#666;
+    line-height:1.6;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.bottom-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.veg-badge{
+    background:#fef3c7;
+    color:#92400e;
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.nonveg-badge{
+    background:#fee2e2;
+    color:#991b1b;
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.order-btn{
+    background:#f59e0b;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.order-btn:hover{
+    background:#d97706;
+}
+
+/* FOOTER */
+
+.footer{
+    margin-top:40px;
+    background:#92400e;
+    color:white;
+    border-radius:20px;
+    padding:22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.footer-left{
+    display:flex;
+    gap:30px;
+    font-weight:500;
+}
+
+.checkout-btn{
+    background:#f59e0b;
+    color:white;
+    border:none;
+    padding:16px 28px;
+    border-radius:14px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.checkout-btn:hover{
+    background:#d97706;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="topbar">
+
+    <div class="logo">
+        <span>restaurant</span> MAIN COURSE
+    </div>
+
+    <!-- <div class="table-box">
+        🍽 Table No. 12
+    </div>   -->
+
+</div>
+
+<!-- BANNER -->
+
+<div class="banner">
+
+    <div>
+        <h1>Delicious Main Course</h1>
+
+        <p>
+            Enjoy rich and satisfying main course dishes prepared
+            with authentic recipes and premium ingredients.
+        </p>
+    </div>
+
+    <div class="offer-box">
+        🔥 Chef Special
+    </div>
+
+</div>
+
+<!-- SEARCH -->
+
+<div class="search-section">
+
+    <div class="search-box">
+        <input type="text" placeholder="Search main course dishes...">
+    </div>
+
+    <button class="filter-btn">
+        🔍 Filter
+    </button>
+
+</div>
+
+<!-- FOOD CARDS -->
+
+<div class="cards">
+
+    <!-- Paneer Butter Masala -->
+
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7">
+
+        <div class="card-content">
+
+            <div class="top-row">
+                <div class="food-name">Paneer Butter Masala</div>
+                <div class="price">₹320</div>
+            </div>
+
+            <div class="rating">⭐ 4.9</div>
+
+            <div class="description">
+                Rich cottage cheese cubes cooked in creamy tomato gravy and Indian spices.
+            </div>
+
+            <div class="bottom-row">
+                <div class="veg-badge">🟢 VEG</div>
+                <button class="order-btn">+ Add</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Butter Chicken -->
+
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398">
+
+        <div class="card-content">
+
+            <div class="top-row">
+                <div class="food-name">Butter Chicken</div>
+                <div class="price">₹360</div>
+            </div>
+
+            <div class="rating">⭐ 4.8</div>
+
+            <div class="description">
+                Tender chicken cooked in buttery tomato sauce with fresh cream.
+            </div>
+
+            <div class="bottom-row">
+                <div class="nonveg-badge">🔴 NON VEG</div>
+                <button class="order-btn">+ Add</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Veg Biryani -->
+
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a">
+
+        <div class="card-content">
+
+            <div class="top-row">
+                <div class="food-name">Veg Biryani</div>
+                <div class="price">₹280</div>
+            </div>
+
+            <div class="rating">⭐ 4.7</div>
+
+            <div class="description">
+                Aromatic basmati rice layered with vegetables and traditional spices.
+            </div>
+
+            <div class="bottom-row">
+                <div class="veg-badge">🟢 VEG</div>
+                <button class="order-btn">+ Add</button>
+            </div> 
+			
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+    <div class="footer-left">
+        <div>🏠 Home</div>
+        <div>📞 Staff</div>
+        <div>❓ Help</div>
+    </div>
+<a href="#Page:Place_Order_Page1" class="checkout-btn"
+	<button class="checkout-btn"> 🛒 View Cart > </button>
+</a>
+</div>
+
+
+</div>
+
+</body>
+</html>

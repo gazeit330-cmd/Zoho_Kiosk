@@ -1,0 +1,1058 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiosk UI</title>
+
+<style>
+body {
+    margin:0;
+    font-family: 'Poppins', sans-serif;
+    background:#f2f2f2;
+	
+}
+
+body{
+    padding-bottom:140px;
+}
+
+/* HEADER */
+.header {
+
+    background: linear-gradient(90deg, #000000, #1c1c1c);
+
+    color: white;
+
+    padding: 10px 15px;
+
+    min-height: 90px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    flex-direction: column;
+}
+
+
+/* DARK OVERLAY */
+
+.overlay{
+
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,0.55);
+
+z-index:1;
+
+
+}
+
+/* HEADER TOP */
+
+.header-top{
+
+
+position:relative;
+z-index:2;
+
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+
+flex-wrap:wrap;
+
+
+}
+
+/* TIME */
+
+.time-box h3{
+margin:0;
+font-size:24px;
+}
+
+.time-box p{
+margin-top:5px;
+font-size:14px;
+color:#f1f1f1;
+}
+
+/* HEADER CENTER CONTENT */
+
+.header-content{
+
+
+position:relative;
+z-index:2;
+
+text-align:center;
+
+margin-top:20px;
+
+
+}
+
+.header-content h1{
+
+margin:0;
+
+font-size:30px;
+
+font-weight:700;
+
+letter-spacing:1px;
+}
+
+.header-content p{
+
+margin-top:5px;
+
+font-size:15px;
+
+color:#FFD166;
+}
+
+/* BUTTONS */
+
+.header-buttons{
+display:flex;
+gap:12px;
+}
+
+/* COMMON BUTTON */
+
+.btn{
+
+
+border:none;
+
+padding:10px 18px;
+
+border-radius:30px;
+
+font-size:14px;
+font-weight:600;
+
+cursor:pointer;
+
+transition:0.3s ease;
+
+color:white;
+
+}
+
+/* LANGUAGE BUTTON */
+
+.language-btn{
+
+
+background:rgba(255,255,255,0.15);
+
+border:1px solid rgba(255,255,255,0.4);
+
+backdrop-filter:blur(8px);
+
+
+}
+
+/* OFFER BUTTON */
+
+.offer-btn{
+
+
+background:linear-gradient(135deg,#FF512F,#DD2476);
+
+
+}
+
+/* HOVER EFFECT */
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+
+/* TABS */
+.tabs {
+    display:flex;
+    gap:10px;
+    padding:15px;
+}
+
+.tab-link{
+    flex:1;
+    text-decoration:none;
+}
+
+.tab {
+    flex:1;
+    padding:10px;
+    border-radius:10px;
+    color:white;
+    text-align:center;
+    font-weight:600;
+}
+
+.green{background:#6ab04c;}
+.orange{background:#f0932b;}
+.pink{background:#eb4d4b;}
+.purple{background:#8e44ad;}
+
+/* GRID */
+.grid {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    padding:0 15px;
+}
+
+/* CARD */
+.card {
+    background:white;
+    border-radius:12px;
+    padding:12px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+.cart-link{
+    text-decoration:none;
+}
+.card h3 {
+    margin-bottom:10px;
+}
+
+/* ITEM */
+.item {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+}
+.item-link{
+    text-decoration:none;
+    color:inherit;
+    display:block;
+}
+
+.item img {
+    width:50px;
+    height:50px;
+    border-radius:10px;
+    object-fit:cover;
+    flex-shrink:0;
+}
+
+.item-title {
+    font-weight:600;
+    font-size:14px;
+}
+
+.item-desc {
+    font-size:12px;
+    color:#777;
+}
+
+.price {
+    margin-left:auto;
+    font-weight:bold;
+}
+
+/* LOWER SECTION */
+.lower-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:15px;
+    padding:15px;
+}
+
+.badge {
+    color:#ff9800;
+    font-weight:600;
+}
+
+/* FOOTER */
+
+.footer {
+
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    background: transparent;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 10px;
+
+    flex-wrap: wrap;   /* Makes buttons move to next line */
+
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+
+    z-index: 999;
+}
+
+
+/* FOOTER BUTTONS */
+
+.footer div {
+
+    min-width: 120px;
+
+    text-align: center;
+
+    padding: 14px 18px;
+
+    border-radius: 12px;
+
+    font-weight: 600;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+
+.view-all{
+
+    display:block;
+
+    margin-top:20px;
+
+    padding-top:15px;
+
+    border-top:1px solid #eee;
+
+    text-align:center;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s ease;
+
+    text-decoration:none;
+
+    color:#6ab04c;
+}
+
+/* DIFFERENT COLORS */
+
+.card:nth-child(1) .view-all{
+    color:#6ab04c;
+}
+
+.card:nth-child(2) .view-all{
+    color:#f0932b;
+}
+
+.card:nth-child(3) .view-all{
+    color:#eb4d4b;
+}
+
+.card:nth-child(4) .view-all{
+    color:#8e44ad;
+}
+
+
+/* HOVER */
+
+.view-all:hover{
+
+    transform:translateX(3px);
+}
+
+
+
+
+/* BUTTON COLORS */
+
+.home{
+    background:#ffffff;
+    border:1px solid #ddd;
+}
+
+.help{
+    background:#ffffff;
+    border:1px solid #ddd;
+}
+
+.call{
+    background:#111827;
+    color:white;
+}
+
+.cart{
+    background:#2e7d32;
+    color:white;
+}
+
+.checkout{
+    background:#c62828;
+    color:white;
+}
+
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:768px){
+
+    .footer{
+
+        gap:8px;
+
+        padding:8px;
+    }
+
+    .footer div{
+
+        min-width:90px;
+
+        font-size:12px;
+
+        padding:12px 10px;
+    }
+
+}
+
+.home{background:#fff;}
+.help{background:#fff;}
+.call{background:#fff;}
+.cart{background:#2e7d32;color:white;}
+.checkout{background:#c62828;color:white;}
+/* =========================
+   TABLET RESPONSIVE
+========================= */
+
+@media (max-width:1024px){
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .lower-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .header-content h1{
+        font-size:26px;
+    }
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width:768px){
+
+    body{
+        padding-bottom:160px;
+    }
+
+    /* HEADER */
+
+    .header{
+        padding:15px 10px;
+    }
+
+    .header-content{
+        margin-top:10px;
+    }
+
+    .header-content h1{
+        font-size:22px;
+    }
+
+    .header-content p{
+        font-size:13px;
+    }
+
+    /* TABS */
+
+    .tabs{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+        padding:10px;
+    }
+
+    .tab{
+        font-size:13px;
+        padding:12px 8px;
+    }
+
+    /* MAIN GRID */
+
+    .grid{
+        grid-template-columns:1fr;
+        padding:0 10px;
+    }
+
+    /* LOWER GRID */
+
+    .lower-grid{
+        grid-template-columns:1fr;
+        padding:10px;
+    }
+
+    /* CARD */
+
+    .card{
+        padding:10px;
+    }
+
+    /* ITEM */
+
+    .item img{
+        width:60px;
+        height:60px;
+    }
+
+    .item-title{
+        font-size:13px;
+    }
+
+    .item-desc{
+        font-size:11px;
+    }
+
+    .price{
+        font-size:13px;
+        white-space:nowrap;
+    }
+
+    /* FOOTER */
+
+    .footer{
+        gap:8px;
+        padding:8px;
+    }
+
+    .footer div{
+        min-width:100px;
+        font-size:12px;
+        padding:12px 10px;
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width:480px){
+
+    .header-content h1{
+        font-size:18px;
+    }
+
+    .header-content p{
+        font-size:12px;
+    }
+
+    .tabs{
+        grid-template-columns:1fr;
+    }
+
+    .footer{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .footer div{
+        width:100%;
+    }
+}
+
+
+
+
+
+</style>
+</head>
+
+
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+
+    <div class="header-content">
+        <h1>🍴 ZOHO KIOSK</h1>
+        <p>Welcome to Delicious Bites</p>
+    </div>
+
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+
+<a href="#Page:Demo_Starter" class="tab-link">
+    <div class="tab green">STARTERS</div>
+</a>
+
+<a href="#Page:Main_Course" class="tab-link">
+    <div class="tab orange">MAIN COURSE</div>
+</a>
+
+<a href="#Page:Desserts" class="tab-link">
+    <div class="tab pink">DESSERTS</div>
+</a>
+
+<a href="#Page:Beverages" class="tab-link">
+    <div class="tab purple">BEVERAGES</div>
+</a>
+
+</div>
+
+<!-- MAIN GRID -->
+<div class="grid">
+
+<!-- STARTERS -->
+<div class="card">
+
+<h3>STARTERS</h3>
+
+<!-- ITEM 1 -->
+<a href="#Page:Demo_Starter" class="item-link">
+
+<div class="item">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqW0QGM008WTOWF8ElqgwCovcfzYLEZTrYjYBT1IEqexpOY-TOu4k54Ho4QF2eV16gSH6qnlHN6JXXI8d76KjxfvHtrCz76ACvVFe-dq0&s=10">
+
+<div>
+<div class="item-title">Paneer Tikka</div>
+<div class="item-desc">Grilled cottage cheese</div>
+</div>
+
+<div class="price">₹220</div>
+</div>
+
+</a>
+
+<!-- ITEM 2 -->
+<a href="#Page:Demo_Starter" class="item-link">
+
+<div class="item">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTifumYVKj0zGMWoQ8fOHhRaQnovgqJzL-SyJDGgtfp0On3rSsbJzkLV4E7ECOPz4oA1-BBjW1NNaxFLr0Z3Y3qrdYk_vdF1HW-dZ-pJfQ&s=10">
+
+<div>
+<div class="item-title">Chicken Lollipop</div>
+<div class="item-desc">Crispy wings</div>
+</div>
+
+<div class="price">₹260</div>
+</div>
+
+</a>
+
+<!-- ITEM 3 -->
+<a href="#Page:Demo_Starter" class="item-link">
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1544025162-d76694265947">
+
+<div>
+<div class="item-title">French Fries</div>
+<div class="item-desc">Crispy potato fries</div>
+</div>
+
+<div class="price">₹140</div>
+</div>
+
+</a>
+
+<!-- ITEM 4 -->
+<a href="#Page:Demo_Starter" class="item-link">
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1601050690597-df0568f70950">
+
+<div>
+<div class="item-title">Veg Spring Roll</div>
+<div class="item-desc">Crunchy veggie rolls</div>
+</div>
+
+<div class="price">₹180</div>
+</div>
+
+</a>
+
+<!-- VIEW ALL -->
+<a href="#Page:Demo_Starter" class="view-all">
+    View All →
+</a>
+
+</div>
+
+
+<!-- MAIN COURSE -->
+
+<div class="card">
+
+<h3>MAIN COURSE</h3>
+
+<!-- ITEM 1 -->
+<a href="#Page:Main_Course" class="item-link">
+
+<div class="item">
+<img src="https://www.indianveggiedelight.com/wp-content/uploads/2020/04/veg-biryani-instant-pot.jpg">
+
+<div>
+<div class="item-title">Veg Biryani</div>
+<div class="item-desc">Aromatic rice</div>
+</div>
+
+<div class="price">₹280</div>
+</div>
+
+</a>
+
+<!-- ITEM 2 -->
+<a href="#Page:Main_Course" class="item-link">
+
+<div class="item">
+<img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2023/04/butter-chicken-recipe.jpg">
+
+<div>
+<div class="item-title">Butter Chicken</div>
+<div class="item-desc">Creamy curry</div>
+</div>
+
+<div class="price">₹360</div>
+</div>
+
+</a>
+
+<!-- ITEM 3 -->
+<a href="#Page:Main_Course" class="item-link">
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
+
+<div>
+<div class="item-title">Paneer Butter Masala</div>
+<div class="item-desc">Rich tomato gravy</div>
+</div>
+
+<div class="price">₹320</div>
+</div>
+
+</a>
+
+<!-- ITEM 4 -->
+<a href="#Page:Main_Course" class="item-link">
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1512058564366-18510be2db19">
+
+<div>
+<div class="item-title">Hakka Noodles</div>
+<div class="item-desc">Stir fried noodles</div>
+</div>
+
+<div class="price">₹240</div>
+</div>
+
+</a>
+
+<!-- VIEW ALL -->
+<a href="#Page:Main_Course" class="view-all">
+    View All →
+</a>
+
+</div>
+
+<!-- DESSERT -->
+<div class="card">
+
+<h3>DESSERTS</h3>
+
+<!-- ITEM 1 -->
+<a href="#Page:Desserts" class="item-link">
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb">
+
+<div>
+<div class="item-title">Ice Cream</div>
+<div class="item-desc">Vanilla delight</div>
+</div>
+
+<div class="price">₹120</div>
+</div>
+
+</a>
+
+<!-- ITEM 2 -->
+<a href="#Page:Desserts" class="item-link">
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c">
+
+<div>
+<div class="item-title">Chocolate Brownie</div>
+<div class="item-desc">Warm chocolate brownie</div>
+</div>
+
+<div class="price">₹180</div>
+</div>
+
+</a>
+
+<!-- ITEM 3 -->
+<a href="#Page:Desserts" class="item-link">
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1551024601-bec78aea704b">
+
+<div>
+<div class="item-title">Strawberry Cheesecake</div>
+<div class="item-desc">Creamy cheesecake</div>
+</div>
+
+<div class="price">₹240</div>
+</div>
+
+</a>
+
+<!-- ITEM 4 -->
+<a href="#Page:Desserts" class="item-link">
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1587314168485-3236d6710814">
+
+<div>
+<div class="item-title">Gulab Jamun</div>
+<div class="item-desc">Indian sweet dessert</div>
+</div>
+
+<div class="price">₹100</div>
+</div>
+
+</a>
+
+<!-- VIEW ALL -->
+<a href="#Page:Desserts" class="view-all">
+    View All →
+</a>
+
+</div>
+
+<!-- BEVERAGES -->
+<div class="card">
+
+<h3>BEVERAGES</h3>
+
+<!-- ITEM 1 -->
+<a href="#Page:Beverages" class="item-link">
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c">
+
+<div>
+<div class="item-title">Cold Coffee</div>
+<div class="item-desc">Chilled creamy coffee</div>
+</div>
+
+<div class="price">₹120</div>
+</div>
+
+</a>
+
+<!-- ITEM 2 -->
+<a href="#Page:Beverages" class="item-link">
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1544145945-f90425340c7e">
+
+<div>
+<div class="item-title">Mango Shake</div>
+<div class="item-desc">Fresh mango delight</div>
+</div>
+
+<div class="price">₹140</div>
+</div>
+
+</a>
+
+<!-- ITEM 3 -->
+<a href="#Page:Beverages" class="item-link">
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
+
+<div>
+<div class="item-title">Fresh Juice</div>
+<div class="item-desc">Mixed fruit juice</div>
+</div>
+
+<div class="price">₹110</div>
+</div>
+
+</a>
+
+<!-- ITEM 4 -->
+<a href="#Page:Beverages" class="item-link">
+
+<div class="item">
+<img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735">
+
+<div>
+<div class="item-title">Lemon Mojito</div>
+<div class="item-desc">Refreshing mint cooler</div>
+</div>
+
+<div class="price">₹160</div>
+</div>
+
+</a>
+
+<!-- VIEW ALL -->
+<a href="#Page:Beverages" class="view-all">
+    View All →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- LOWER SECTION -->
+<div class="lower-grid">
+
+<!-- BREADS -->
+<div class="card">
+
+<h3 class="badge">🫓 BREADS</h3>
+
+<a href="#Page:Bread_Roti" class="item-link">
+<div class="item">
+<img src="https://maayeka.com/wp-content/uploads/2025/10/butter-naan-tawa-naan-1-of-1-500x500.jpg">
+
+<div>
+<div class="item-title">Butter Naan</div>
+<div class="item-desc">Soft buttery naan</div>
+</div>
+
+<div class="price">₹60</div>
+</div>
+</a>
+
+<a href="#Page:Bread_Roti" class="item-link">
+<div class="item">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJTMLAzGVbGTxAsBZ6d_wzun2_FPRaLj9KUA&s">
+
+<div>
+<div class="item-title">Garlic Naan</div>
+<div class="item-desc">Garlic flavored naan</div>
+</div>
+
+<div class="price">₹80</div>
+</div>
+</a>
+
+<a href="#Page:Bread_Roti" class="item-link">
+<div class="item">
+<img src="https://www.cookwithmanali.com/wp-content/uploads/2021/07/Tandoori-Roti-500x500.jpg">
+
+<div>
+<div class="item-title">Tandoori Roti</div>
+<div class="item-desc">Fresh clay oven roti</div>
+</div>
+
+<div class="price">₹40</div>
+</div>
+</a>
+
+</div>
+
+
+<!-- ADD-ONS -->
+<div class="card">
+
+<h3>➕ ADD-ONS</h3>
+
+<div class="item">
+<div>Extra Cheese</div>
+<div class="price">₹30</div>
+</div>
+
+<div class="item">
+<div>Extra Rice</div>
+<div class="price">₹40</div>
+</div>
+
+<div class="item">
+<div>Extra Butter</div>
+<div class="price">₹20</div>
+</div>
+
+</div>
+
+
+<!-- POPULAR COMBOS -->
+<div class="card">
+
+<h3 class="badge">🔥 POPULAR COMBOS</h3>
+
+<div class="item">
+<div>Paneer Tikka + Biryani</div>
+<div class="price">₹399</div>
+</div>
+
+<div class="item">
+<div>Chicken + Butter Chicken</div>
+<div class="price">₹499</div>
+</div>
+
+<div class="item">
+<div>Naan + Paneer Masala</div>
+<div class="price">₹349</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+<div class="footer">
+ <!--   <div class="home">🏠 Home</div>-->
+    <div class="help">ℹ️ Help</div>
+   <a href="#Page:Place_Order_Page1" class="cart-link">
+    <div class="cart">🛒 View Cart (3)</div>
+</a>
+</div>
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>

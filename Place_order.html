@@ -1,0 +1,576 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Summary</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#333;
+}
+
+.header{
+    background:#005cb8;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.container{
+    max-width:1200px;
+    margin:20px auto;
+    padding:20px;
+    display:flex;
+    gap:20px;
+}
+
+.left{
+    flex:2;
+}
+
+.right{
+    flex:1;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:15px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.item img{
+    width:100px;
+    height:100px;
+    border-radius:10px;
+    object-fit:cover;
+}
+
+.item-details{
+    flex:1;
+}
+
+.item-details h3{
+    margin-bottom:5px;
+}
+
+.item-details p{
+    color:#666;
+    margin-bottom:5px;
+}
+
+.price{
+    color:#005cb8;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.qty{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:10px;
+}
+
+.qty button{
+    width:30px;
+    height:30px;
+    border:none;
+    background:#005cb8;
+    color:white;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.bill h2{
+    margin-bottom:15px;
+}
+
+.bill-row{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+}
+
+.total{
+    font-size:24px;
+    font-weight:bold;
+    color:#005cb8;
+    margin-top:15px;
+}
+
+.place-order{
+    width:100%;
+    margin-top:20px;
+    padding:15px;
+    border:none;
+    background:#005cb8;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.place-order:hover{
+    background:#004a94;
+}
+
+.footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background:white;
+    border-top:1px solid #ddd;
+    display:flex;
+    justify-content:space-around;
+    padding:15px;
+}
+
+.footer a{
+    text-decoration:none;
+    color:#333;
+    font-weight:bold;
+}
+
+@media(max-width:768px){
+
+.container{
+    flex-direction:column;
+}
+
+.footer{
+    font-size:14px;
+}
+}
+
+
+.payment-section{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.payment-section h3{
+    margin-bottom:15px;
+    font-size:18px;
+}
+
+.payment-option{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:15px;
+    margin-bottom:10px;
+    background:#f5f7fb;
+    border:1px solid #ddd;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.payment-option:hover{
+    background:#eef5ff;
+    border-color:#005cb8;
+}
+
+.payment-option input{
+    width:18px;
+    height:18px;
+}
+ 
+
+.order-type-options{
+    display:flex;
+    gap:15px;
+}
+
+.order-option{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:15px;
+    background:#f5f7fb;
+    border:1px solid #ddd;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.order-option:hover{
+    background:#eef5ff;
+    border-color:#005cb8;
+}
+
+.order-option input{
+    width:18px;
+    height:18px;
+}
+
+
+
+</style>
+
+</head>
+<body>
+
+<div class="header">
+    <h1>ZOHO KIOSK</h1>
+</div>
+
+<div class="container">
+
+    <div class="left" id="cartItems">
+
+        
+    </div>
+
+    <div class="right">
+
+        <div class="card bill">
+
+            <h2>Bill Details</h2>
+
+            <div class="bill-row">
+                <span>Item Total</span>
+                <span class="item-total">₹0</span>
+            </div>
+
+            <div class="bill-row">
+                <span>GST (5%)</span>
+                <span class="gst">₹0</span>
+            </div>
+
+            <div class="bill-row">
+                <span>Service Fee</span>
+                <span>₹25</span>
+            </div>
+			
+
+            <hr><br>
+
+            <div class="bill-row total">
+                <span>Total</span>
+                <span class="grand-total">₹0</span>
+            </div>  
+			
+		<div class="order-type-section">
+
+    <h3>Order Type</h3>
+
+    <div class="order-type-options">
+
+        <label class="order-option">
+            <input type="radio" name="order_type" value="Dine In" checked>
+            <span>🍽️ Dine In</span>
+        </label>
+
+        <label class="order-option">
+            <input type="radio" name="order_type" value="Take Away">
+            <span>🥡 Take Away</span>
+        </label>
+
+    </div>
+
+</div>
+
+<div class="payment-section">
+
+    <h3>Select Payment Method</h3>
+
+    <label class="payment-option">
+        <input type="radio" name="payment" checked>
+        <span>💵 Cash</span>
+    </label>
+
+    <label class="payment-option">
+        <input type="radio" name="payment">
+        <span>📱 UPI</span>
+    </label>
+
+</div>
+
+
+
+            <button class="place-order">
+                PLACE ORDER
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <a href="./Starter.html">Back</a>
+    <a href="#">Help</a>
+    <a href="#">Call Staff</a>
+    <a href="#">Checkout</a>
+</div>
+
+
+
+
+
+
+<script>
+
+// GET CART DATA
+
+let cart =
+JSON.parse(sessionStorage.getItem("restaurantCart")) || [];
+
+
+// TARGET CONTAINER
+
+let cartContainer =
+document.getElementById("cartItems");
+
+
+let itemTotal = 0;
+
+
+// GENERATE ITEMS
+
+cart.forEach(item => {
+
+    let numericPrice =
+    parseInt(item.price.replace("₹",""));
+
+    let totalPrice =
+    numericPrice * item.quantity;
+
+    itemTotal += totalPrice;
+
+
+    cartContainer.innerHTML += `
+
+      <div class="card item">
+
+          <img src="${item.image}">
+
+          <div class="item-details">
+
+              <h3>${item.name}</h3>
+
+              <p>${item.description}</p>
+
+              <div class="price">
+                ₹${numericPrice}
+              </div>
+
+              <div class="qty">
+
+                  <button onclick="decreaseQty(this, ${numericPrice})">
+                    -
+                  </button>
+
+                  <span>${item.quantity}</span>
+
+                  <button onclick="increaseQty(this, ${numericPrice})">
+                    +
+                  </button>
+
+              </div>
+
+          </div>
+
+      </div>
+
+    `;
+
+});
+
+
+// GST
+
+let gst =
+Math.round(itemTotal * 0.05);
+
+
+// SERVICE FEE
+
+let serviceFee =
+itemTotal > 0 ? 25 : 0;
+
+
+// GRAND TOTAL
+
+let grandTotal =
+itemTotal + gst + serviceFee;
+
+
+// UPDATE BILL
+
+document.querySelector(".item-total")
+.innerText = "₹" + itemTotal;
+
+document.querySelector(".gst")
+.innerText = "₹" + gst;
+
+document.querySelector(".grand-total")
+.innerText = "₹" + grandTotal;
+
+
+
+// INCREASE QTY
+
+function increaseQty(button, price)
+{
+    let card =
+    button.closest(".card");
+
+    let itemName =
+    card.querySelector("h3").innerText;
+
+    let qtySpan =
+    button.parentElement.querySelector("span");
+
+    let qty =
+    parseInt(qtySpan.innerText);
+
+    qty++;
+
+    qtySpan.innerText = qty;
+
+    cart.forEach(item => {
+
+        if(item.name === itemName)
+        {
+            item.quantity = qty;
+        }
+
+    });
+
+    sessionStorage.setItem(
+        "restaurantCart",
+        JSON.stringify(cart)
+    );
+
+    updateTotals();
+}
+
+
+
+// DECREASE QTY
+
+function decreaseQty(button, price)
+{
+    let card =
+    button.closest(".card");
+
+    let itemName =
+    card.querySelector("h3").innerText;
+
+    let qtySpan =
+    button.parentElement.querySelector("span");
+
+    let qty =
+    parseInt(qtySpan.innerText);
+
+    if(qty > 0)
+    {
+        qty--;
+
+        qtySpan.innerText = qty;
+    }
+
+    cart.forEach(item => {
+
+        if(item.name === itemName)
+        {
+            item.quantity = qty;
+        }
+
+    });
+
+    cart = cart.filter(item => item.quantity > 0);
+
+    sessionStorage.setItem(
+        "restaurantCart",
+        JSON.stringify(cart)
+    );
+
+    updateTotals();
+}
+
+
+
+// UPDATE TOTALS
+
+function updateTotals()
+{
+    let itemCards =
+    document.querySelectorAll(".card.item");
+
+    let itemTotal = 0;
+
+    itemCards.forEach(card => {
+
+        let price =
+        parseInt(
+          card.querySelector(".price")
+          .innerText.replace("₹","")
+        );
+
+        let qty =
+        parseInt(
+          card.querySelector(".qty span")
+          .innerText
+        );
+
+        itemTotal += price * qty;
+
+    });
+
+    let gst =
+    Math.round(itemTotal * 0.05);
+
+    let serviceFee =
+    itemTotal > 0 ? 25 : 0;
+
+    let grandTotal =
+    itemTotal + gst + serviceFee;
+
+
+    document.querySelector(".item-total")
+    .innerText = "₹" + itemTotal;
+
+    document.querySelector(".gst")
+    .innerText = "₹" + gst;
+
+    document.querySelector(".grand-total")
+    .innerText = "₹" + grandTotal;
+}
+
+</script>
+<script>
+
+console.log(
+  JSON.parse(
+    sessionStorage.getItem("restaurantCart")
+  )
+);
+
+</script>
+
+
+
+</body>
+</html>

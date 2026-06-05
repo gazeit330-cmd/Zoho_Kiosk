@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beverages Menu</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f8f0fc;
+    padding:25px;
+}
+
+.container{
+    background:white;
+    border-radius:24px;
+    padding:30px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* HEADER */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+}
+
+.logo{
+    font-size:38px;
+    font-weight:700;
+    color:#5b2c6f;
+}
+
+.logo span{
+    color:#8e44ad;
+    font-weight:400;
+}
+
+/* BANNER */
+
+.banner{
+    background:linear-gradient(to right,#6c3483,#8e44ad);
+    border-radius:24px;
+    padding:40px;
+    color:white;
+    margin-bottom:35px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.banner h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.banner p{
+    opacity:0.95;
+    line-height:1.6;
+    max-width:550px;
+}
+
+.offer-box{
+    background:white;
+    color:#8e44ad;
+    padding:18px 25px;
+    border-radius:18px;
+    font-size:20px;
+    font-weight:700;
+}
+
+/* SEARCH */
+
+.search-section{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.search-box{
+    flex:1;
+    min-width:250px;
+}
+
+.search-box input{
+    width:100%;
+    padding:16px 20px;
+    border-radius:14px;
+    border:2px solid #d7bde2;
+    outline:none;
+    font-size:15px;
+}
+
+.filter-btn{
+    background:#8e44ad;
+    color:white;
+    border:none;
+    padding:16px 28px;
+    border-radius:14px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.filter-btn:hover{
+    background:#6c3483;
+}
+
+/* FOOD GRID */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:28px;
+}
+
+.card{
+    background:white;
+    border-radius:22px;
+    overflow:hidden;
+    border:1px solid #d7bde2;
+    transition:0.3s;
+    box-shadow:0 4px 14px rgba(0,0,0,0.06);
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:22px;
+}
+
+.top-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+.food-name{
+    font-size:24px;
+    font-weight:600;
+    color:#5b2c6f;
+}
+
+.price{
+    color:#8e44ad;
+    font-size:22px;
+    font-weight:700;
+}
+
+.rating{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin-bottom:12px;
+    color:#8e44ad;
+    font-weight:600;
+}
+
+.description{
+    color:#666;
+    line-height:1.6;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.bottom-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.beverage-badge{
+    background:#eadcf4;
+    color:#5b2c6f;
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.order-btn{
+    background:#8e44ad;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.order-btn:hover{
+    background:#6c3483;
+}
+
+/* FOOTER */
+
+.footer{
+    margin-top:40px;
+    background:#5b2c6f;
+    color:white;
+    border-radius:20px;
+    padding:22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.footer-left{
+    display:flex;
+    gap:30px;
+    font-weight:500;
+}
+
+.checkout-btn{
+    background:#8e44ad;
+    color:white;
+    border:none;
+    padding:16px 28px;
+    border-radius:14px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.checkout-btn:hover{
+    background:#6c3483;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="topbar">
+    <div class="logo">
+        <span>restaurant</span> BEVERAGES
+    </div>
+</div>
+
+<!-- BANNER -->
+
+<div class="banner">
+
+    <div>
+        <h1>Refreshing Beverages</h1>
+
+        <p>
+            Enjoy fresh juices, milkshakes, coffees and specialty drinks
+            prepared with premium ingredients and rich flavors.
+        </p>
+    </div>
+
+    <div class="offer-box">
+        🥤 Hot & Cold
+    </div>
+
+</div>
+
+<!-- SEARCH -->
+
+<div class="search-section">
+
+    <div class="search-box">
+        <input type="text" placeholder="Search beverages...">
+    </div>
+
+    <button class="filter-btn">
+        🔍 Filter
+    </button>
+
+</div>
+
+<!-- BEVERAGE CARDS -->
+
+<div class="cards">
+
+    <!-- Cold Coffee -->
+
+    <div class="card">
+
+        <img src="https://ikneadtoeat.com/wp-content/uploads/2021/08/cold-coffee-with-ice-cream-4.jpg" alt="Cold Coffee">
+
+        <div class="card-content">
+
+            <div class="top-row">
+                <div class="food-name">Cold Coffee</div>
+                <div class="price">₹180</div>
+            </div>
+
+            <div class="rating">⭐ 4.9</div>
+
+            <div class="description">
+                Rich and creamy cold coffee blended with ice cream and chocolate.
+            </div>
+
+            <div class="bottom-row">
+                <div class="beverage-badge">☕ COFFEE</div>
+                <button class="order-btn">+ Add</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Fresh Orange Juice -->
+
+    <div class="card">
+
+        <img src="https://saberhealth.com/wp-content/uploads/2024/09/orange-juice.jpg" alt="Orange Juice">
+
+        <div class="card-content">
+
+            <div class="top-row">
+                <div class="food-name">Fresh Orange Juice</div>
+                <div class="price">₹140</div>
+            </div>
+
+            <div class="rating">⭐ 4.8</div>
+
+            <div class="description">
+                Freshly squeezed orange juice packed with natural vitamins.
+            </div>
+
+            <div class="bottom-row">
+                <div class="beverage-badge">🍊 JUICE</div>
+                <button class="order-btn">+ Add</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Chocolate Milkshake -->
+
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699" alt="Chocolate Milkshake">
+
+        <div class="card-content">
+
+            <div class="top-row">
+                <div class="food-name">Oreo Chocolate Milkshake</div>
+                <div class="price">₹220</div>
+            </div>
+
+            <div class="rating">⭐ 4.9</div>
+
+            <div class="description">
+                Thick and creamy chocolate milkshake topped with whipped cream.
+            </div>
+
+            <div class="bottom-row">
+                <div class="beverage-badge">🥤 SHAKE</div>
+                <button class="order-btn">+ Add</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+    
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+    <div class="footer-left">
+        <a href="#Page:Restaurant_Menu" class="footer-left"><div>🏠 Home</div></a>
+        <div>📞 Staff</div>
+        <div>❓ Help</div>
+    </div>
+    
+	<a href="#Page:Place_Order_Page1" >
+    <button class="checkout-btn">
+        🛒 View Cart
+    </button>
+	</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

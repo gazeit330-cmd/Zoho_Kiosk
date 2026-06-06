@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -113,10 +113,6 @@ body{
     font-weight:600;
 }
 
-.filter-btn:hover{
-    background:#4f46e5;
-}
-
 .cards{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -193,19 +189,37 @@ body{
     font-weight:600;
 }
 
-.order-btn{
-    background:#6366f1;
-    color:white;
-    border:none;
-    padding:12px 20px;
+/* QUANTITY BOX */
+
+.quantity-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#e0e7ff;
+    padding:8px 12px;
     border-radius:12px;
-    cursor:pointer;
-    font-weight:600;
 }
 
-.order-btn:hover{
-    background:#4f46e5;
+.qty-btn{
+    width:32px;
+    height:32px;
+    border:none;
+    border-radius:8px;
+    background:#6366f1;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    font-weight:bold;
 }
+
+.qty-number{
+    font-size:18px;
+    font-weight:600;
+    min-width:20px;
+    text-align:center;
+}
+
+/* FOOTER */
 
 .footer{
     margin-top:40px;
@@ -235,10 +249,7 @@ body{
     font-size:16px;
     font-weight:600;
     cursor:pointer;
-}
-
-.checkout-btn:hover{
-    background:#4f46e5;
+    text-decoration:none;
 }
 
 </style>
@@ -257,6 +268,7 @@ body{
 <div class="banner">
     <div>
         <h1>Sweet Desserts</h1>
+
         <p>
             Treat yourself with delicious desserts, cakes, ice creams,
             and sweet delights crafted with love and premium ingredients.
@@ -269,6 +281,7 @@ body{
 </div>
 
 <div class="search-section">
+
     <div class="search-box">
         <input type="text" placeholder="Search desserts...">
     </div>
@@ -276,15 +289,19 @@ body{
     <button class="filter-btn">
         🔍 Filter
     </button>
+
 </div>
 
 <div class="cards">
 
-    <!-- Chocolate Brownie -->
+    <!-- CARD 1 -->
+
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c" alt="Chocolate Brownie">
+
+        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c">
 
         <div class="card-content">
+
             <div class="top-row">
                 <div class="food-name">Chocolate Brownie</div>
                 <div class="price">₹180</div>
@@ -297,17 +314,39 @@ body{
             </div>
 
             <div class="bottom-row">
+
                 <div class="dessert-badge">🍫 DESSERT</div>
-                <button class="order-btn">+ Add</button>
+
+                <div class="quantity-box">
+
+                    <button class="qty-btn"
+                    onclick="decreaseQuantity('brownieQty','Chocolate Brownie',180)">
+                    -
+                    </button>
+
+                    <div class="qty-number" id="brownieQty">0</div>
+
+                    <button class="qty-btn"
+                    onclick="increaseQuantity('brownieQty','Chocolate Brownie',180)">
+                    +
+                    </button>
+
+                </div>
+
             </div>
+
         </div>
+
     </div>
 
-    <!-- Vanilla Ice Cream -->
+    <!-- CARD 2 -->
+
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb" alt="Vanilla Ice Cream">
+
+        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb">
 
         <div class="card-content">
+
             <div class="top-row">
                 <div class="food-name">Vanilla Ice Cream</div>
                 <div class="price">₹120</div>
@@ -320,17 +359,39 @@ body{
             </div>
 
             <div class="bottom-row">
+
                 <div class="dessert-badge">🍦 DESSERT</div>
-                <button class="order-btn">+ Add</button>
+
+                <div class="quantity-box">
+
+                    <button class="qty-btn"
+                    onclick="decreaseQuantity('icecreamQty','Vanilla Ice Cream',120)">
+                    -
+                    </button>
+
+                    <div class="qty-number" id="icecreamQty">0</div>
+
+                    <button class="qty-btn"
+                    onclick="increaseQuantity('icecreamQty','Vanilla Ice Cream',120)">
+                    +
+                    </button>
+
+                </div>
+
             </div>
+
         </div>
+
     </div>
 
-    <!-- Gulab Jamun -->
+    <!-- CARD 3 -->
+
     <div class="card">
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/071/459/415/small/gulab-jamun-traditional-indian-dessert-with-syrup-and-silver-leaf-free-photo.jpg" alt="Gulab Jamun">
+
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/071/459/415/small/gulab-jamun-traditional-indian-dessert-with-syrup-and-silver-leaf-free-photo.jpg">
 
         <div class="card-content">
+
             <div class="top-row">
                 <div class="food-name">Gulab Jamun</div>
                 <div class="price">₹140</div>
@@ -343,27 +404,120 @@ body{
             </div>
 
             <div class="bottom-row">
+
                 <div class="dessert-badge">🍮 DESSERT</div>
-                <button class="order-btn">+ Add</button>
+
+                <div class="quantity-box">
+
+                    <button class="qty-btn"
+                    onclick="decreaseQuantity('gulabQty','Gulab Jamun',140)">
+                    -
+                    </button>
+
+                    <div class="qty-number" id="gulabQty">0</div>
+
+                    <button class="qty-btn"
+                    onclick="increaseQuantity('gulabQty','Gulab Jamun',140)">
+                    +
+                    </button>
+
+                </div>
+
             </div>
+
         </div>
+
     </div>
 
 </div>
 
 <div class="footer">
+
     <div class="footer-left">
         <div>🏠 Home</div>
         <div>📞 Staff</div>
         <div>❓ Help</div>
     </div>
 
-    <button class="checkout-btn">
+    <a href="Place_order.html" class="checkout-btn">
         🛒 View Cart
-    </button>
+    </a>
+
 </div>
 
 </div>
+
+<script>
+
+/* INCREASE */
+
+function increaseQuantity(id,name,price)
+{
+    var qty = document.getElementById(id);
+
+    var current = parseInt(qty.innerHTML);
+
+    current++;
+
+    qty.innerHTML = current;
+
+    saveCart(name,price,current);
+}
+
+/* DECREASE */
+
+function decreaseQuantity(id,name,price)
+{
+    var qty = document.getElementById(id);
+
+    var current = parseInt(qty.innerHTML);
+
+    if(current > 0)
+    {
+        current--;
+    }
+
+    qty.innerHTML = current;
+
+    saveCart(name,price,current);
+}
+
+/* SAVE DATA */
+
+function saveCart(name,price,quantity)
+{
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let itemIndex = cart.findIndex(
+        item => item.name === name
+    );
+
+    if(quantity > 0)
+    {
+        if(itemIndex > -1)
+        {
+            cart[itemIndex].quantity = quantity;
+        }
+        else
+        {
+            cart.push({
+                name:name,
+                price:price,
+                quantity:quantity
+            });
+        }
+    }
+    else
+    {
+        cart = cart.filter(item => item.name !== name);
+    }
+
+    localStorage.setItem("cart",JSON.stringify(cart));
+
+    console.log(cart);
+}
+
+</script>
 
 </body>
 </html>

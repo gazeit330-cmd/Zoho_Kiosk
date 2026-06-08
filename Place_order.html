@@ -1,10 +1,14 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Order Summary</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -15,6 +19,7 @@
 body{
     background:#f5f7fb;
     color:#333;
+    padding-bottom:120px;
 }
 
 .header{
@@ -95,6 +100,7 @@ body{
     color:white;
     border-radius:50%;
     cursor:pointer;
+    font-size:18px;
 }
 
 .bill h2{
@@ -131,34 +137,7 @@ body{
     background:#004a94;
 }
 
-.footer{
-    position:fixed;
-    bottom:0;
-    width:100%;
-    background:white;
-    border-top:1px solid #ddd;
-    display:flex;
-    justify-content:space-around;
-    padding:15px;
-}
-
-.footer a{
-    text-decoration:none;
-    color:#333;
-    font-weight:bold;
-}
-
-@media(max-width:768px){
-
-.container{
-    flex-direction:column;
-}
-
-.footer{
-    font-size:14px;
-}
-}
-
+/* PAYMENT */
 
 .payment-section{
     margin-top:20px;
@@ -191,7 +170,8 @@ body{
     width:18px;
     height:18px;
 }
- 
+
+/* ORDER TYPE */
 
 .order-type-options{
     display:flex;
@@ -209,7 +189,6 @@ body{
     border:1px solid #ddd;
     border-radius:8px;
     cursor:pointer;
-    transition:0.3s;
 }
 
 .order-option:hover{
@@ -222,11 +201,106 @@ body{
     height:18px;
 }
 
+/* FOOTER */
 
+.footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background:white;
+    border-top:1px solid #ddd;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    padding:15px;
+    z-index:100;
+}
+
+.footer a{
+    text-decoration:none;
+    color:#333;
+    font-weight:bold;
+}
+
+/* ADDON BUTTON */
+
+.addon-btn{
+    background:#005cb8;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:bold;
+}
+
+.addon-btn:hover{
+    background:#004a94;
+}
+
+/* ADDON MENU */
+
+.addon-menu{
+    display:none;
+    position:fixed;
+    bottom:85px;
+    left:50%;
+    transform:translateX(-50%);
+    width:320px;
+    background:white;
+    border-radius:14px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.2);
+    padding:15px;
+    z-index:1000;
+}
+
+.addon-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid #eee;
+    cursor:pointer;
+}
+
+.addon-item:hover{
+    color:#005cb8;
+}
+
+.addon-item:last-child{
+    border-bottom:none;
+}
+
+/* EMPTY CART MESSAGE */
+
+.empty-msg{
+    text-align:center;
+    color:#999;
+    font-size:18px;
+    padding:40px;
+}
+
+@media(max-width:768px){
+
+.container{
+    flex-direction:column;
+}
+
+.addon-menu{
+    width:90%;
+}
+
+.footer{
+    font-size:14px;
+}
+
+}
 
 </style>
 
 </head>
+
 <body>
 
 <div class="header">
@@ -235,11 +309,10 @@ body{
 
 <div class="container">
 
-    <div class="left" id="cartItems">
+    <!-- LEFT SIDE -->
+    <div class="left" id="cartItems"></div>
 
-        
-    </div>
-
+    <!-- RIGHT SIDE -->
     <div class="right">
 
         <div class="card bill">
@@ -258,56 +331,45 @@ body{
 
             <div class="bill-row">
                 <span>Service Fee</span>
-                <span>₹25</span>
+                <span class="service-fee">₹0</span>
             </div>
-			
 
             <hr><br>
 
             <div class="bill-row total">
                 <span>Total</span>
                 <span class="grand-total">₹0</span>
-            </div>  
-			
-		<div class="order-type-section">
+            </div>
 
-    <h3>Order Type</h3>
+            <!-- ORDER TYPE -->
+            <div class="order-type-section">
+                <h3>Order Type</h3><br>
+                <div class="order-type-options">
+                    <label class="order-option">
+                        <input type="radio" name="order_type" checked>
+                        <span>🍽️ Dine In</span>
+                    </label>
+                    <label class="order-option">
+                        <input type="radio" name="order_type">
+                        <span>🥡 Take Away</span>
+                    </label>
+                </div>
+            </div>
 
-    <div class="order-type-options">
+            <!-- PAYMENT -->
+            <div class="payment-section">
+                <h3>Select Payment Method</h3>
+                <label class="payment-option">
+                    <input type="radio" name="payment" checked>
+                    <span>💵 Cash</span>
+                </label>
+                <label class="payment-option">
+                    <input type="radio" name="payment">
+                    <span>📱 UPI</span>
+                </label>
+            </div>
 
-        <label class="order-option">
-            <input type="radio" name="order_type" value="Dine In" checked>
-            <span>🍽️ Dine In</span>
-        </label>
-
-        <label class="order-option">
-            <input type="radio" name="order_type" value="Take Away">
-            <span>🥡 Take Away</span>
-        </label>
-
-    </div>
-
-</div>
-
-<div class="payment-section">
-
-    <h3>Select Payment Method</h3>
-
-    <label class="payment-option">
-        <input type="radio" name="payment" checked>
-        <span>💵 Cash</span>
-    </label>
-
-    <label class="payment-option">
-        <input type="radio" name="payment">
-        <span>📱 UPI</span>
-    </label>
-
-</div>
-
-
-
-            <button class="place-order">
+            <button class="place-order" onclick="placeOrder()">
                 PLACE ORDER
             </button>
 
@@ -317,202 +379,140 @@ body{
 
 </div>
 
+<!-- FOOTER -->
 <div class="footer">
-    <a href="./Starter.html">Back</a>
-    <a href="#">Help</a>
-    <a href="#">Call Staff</a>
-    <a href="#">Checkout</a>
+    <a href="Restaurant_menu.html">⬅ Back</a>
+    <button class="addon-btn" onclick="toggleAddonMenu()">➕ Add On</button>
+    <a href="#">❓ Help</a>
 </div>
 
-
-
-
-
+<!-- ADDON MENU -->
+<div class="addon-menu" id="addonMenu">
+    <div class="addon-item" onclick="addAddon('🧀 Extra Cheese',40)"><span>🧀 Extra Cheese</span><span>₹40</span></div>
+    <div class="addon-item" onclick="addAddon('🍚 Extra Rice',60)"><span>🍚 Extra Rice</span><span>₹60</span></div>
+    <div class="addon-item" onclick="addAddon('🫓 Extra Roti',25)"><span>🫓 Extra Roti</span><span>₹25</span></div>
+    <div class="addon-item" onclick="addAddon('🥗 Green Salad',80)"><span>🥗 Green Salad</span><span>₹80</span></div>
+    <div class="addon-item" onclick="addAddon('🍟 French Fries',120)"><span>🍟 French Fries</span><span>₹120</span></div>
+    <div class="addon-item" onclick="addAddon('🥤 Soft Drink',90)"><span>🥤 Soft Drink</span><span>₹90</span></div>
+    <div class="addon-item" onclick="addAddon('🧈 Butter Topping',35)"><span>🧈 Butter Topping</span><span>₹35</span></div>
+    <div class="addon-item" onclick="addAddon('🌶️ Extra Spicy Masala',20)"><span>🌶️ Extra Spicy Masala</span><span>₹20</span></div>
+</div>
 
 <script>
 
-// GET CART DATA
+// ✅ LOAD CART FROM SESSION STORAGE
 
 let cart =
 JSON.parse(sessionStorage.getItem("restaurantCart")) || [];
 
-
-// TARGET CONTAINER
-
 let cartContainer =
 document.getElementById("cartItems");
 
+// ✅ RENDER ALL CART ITEMS ON LOAD
 
-let itemTotal = 0;
-
-
-// GENERATE ITEMS
-
-cart.forEach(item => {
-
-    let numericPrice =
-    parseInt(item.price.replace("₹",""));
-
-    let totalPrice =
-    numericPrice * item.quantity;
-
-    itemTotal += totalPrice;
-
-
-    cartContainer.innerHTML += `
-
-      <div class="card item">
-
-          <img src="${item.image}">
-
-          <div class="item-details">
-
-              <h3>${item.name}</h3>
-
-              <p>${item.description}</p>
-
-              <div class="price">
-                ₹${numericPrice}
-              </div>
-
-              <div class="qty">
-
-                  <button onclick="decreaseQty(this, ${numericPrice})">
-                    -
-                  </button>
-
-                  <span>${item.quantity}</span>
-
-                  <button onclick="increaseQty(this, ${numericPrice})">
-                    +
-                  </button>
-
-              </div>
-
-          </div>
-
-      </div>
-
-    `;
-
-});
-
-
-// GST
-
-let gst =
-Math.round(itemTotal * 0.05);
-
-
-// SERVICE FEE
-
-let serviceFee =
-itemTotal > 0 ? 25 : 0;
-
-
-// GRAND TOTAL
-
-let grandTotal =
-itemTotal + gst + serviceFee;
-
-
-// UPDATE BILL
-
-document.querySelector(".item-total")
-.innerText = "₹" + itemTotal;
-
-document.querySelector(".gst")
-.innerText = "₹" + gst;
-
-document.querySelector(".grand-total")
-.innerText = "₹" + grandTotal;
-
-
-
-// INCREASE QTY
-
-function increaseQty(button, price)
+function renderCart()
 {
-    let card =
-    button.closest(".card");
+    cartContainer.innerHTML = "";
 
-    let itemName =
-    card.querySelector("h3").innerText;
-
-    let qtySpan =
-    button.parentElement.querySelector("span");
-
-    let qty =
-    parseInt(qtySpan.innerText);
-
-    qty++;
-
-    qtySpan.innerText = qty;
-
-    cart.forEach(item => {
-
-        if(item.name === itemName)
-        {
-            item.quantity = qty;
-        }
-
-    });
-
-    sessionStorage.setItem(
-        "restaurantCart",
-        JSON.stringify(cart)
-    );
-
-    updateTotals();
-}
-
-
-
-// DECREASE QTY
-
-function decreaseQty(button, price)
-{
-    let card =
-    button.closest(".card");
-
-    let itemName =
-    card.querySelector("h3").innerText;
-
-    let qtySpan =
-    button.parentElement.querySelector("span");
-
-    let qty =
-    parseInt(qtySpan.innerText);
-
-    if(qty > 0)
+    if(cart.length === 0)
     {
-        qty--;
-
-        qtySpan.innerText = qty;
+        cartContainer.innerHTML =
+        `<div class="empty-msg">🛒 Your cart is empty.<br>Go back and add items.</div>`;
+        updateTotals();
+        return;
     }
 
-    cart.forEach(item => {
+    cart.forEach(item =>
+    {
+        let numericPrice =
+        parseInt(item.price.toString().replace("₹",""));
 
-        if(item.name === itemName)
-        {
-            item.quantity = qty;
-        }
-
+        cartContainer.innerHTML += `
+        <div class="card item" data-name="${item.name}">
+            ${item.image ? `<img src="${item.image}">` : ""}
+            <div class="item-details">
+                <h3>${item.name}</h3>
+                <p>${item.description || ""}</p>
+                <div class="price">₹${numericPrice}</div>
+                <div class="qty">
+                    <button onclick="decreaseQty(this)">-</button>
+                    <span>${item.quantity}</span>
+                    <button onclick="increaseQty(this)">+</button>
+                </div>
+            </div>
+        </div>`;
     });
-
-    cart = cart.filter(item => item.quantity > 0);
-
-    sessionStorage.setItem(
-        "restaurantCart",
-        JSON.stringify(cart)
-    );
 
     updateTotals();
 }
 
+renderCart();
 
+// ✅ INCREASE QTY — also updates sessionStorage
 
-// UPDATE TOTALS
+function increaseQty(button)
+{
+    let card = button.closest(".card.item");
+    let name = card.getAttribute("data-name");
+
+    let qtySpan =
+    button.parentElement.querySelector("span");
+
+    let qty = parseInt(qtySpan.innerText);
+    qty++;
+    qtySpan.innerText = qty;
+
+    // UPDATE sessionStorage
+    cart.forEach(item => {
+        if(item.name === name) item.quantity = qty;
+    });
+
+    sessionStorage.setItem("restaurantCart", JSON.stringify(cart));
+    updateTotals();
+}
+
+// ✅ DECREASE QTY — removes card AND sessionStorage entry when qty hits 0
+
+function decreaseQty(button)
+{
+    let card = button.closest(".card.item");
+    let name = card.getAttribute("data-name");
+
+    let qtySpan =
+    button.parentElement.querySelector("span");
+
+    let qty = parseInt(qtySpan.innerText);
+
+    if(qty > 1)
+    {
+        // JUST REDUCE
+        qty--;
+        qtySpan.innerText = qty;
+
+        cart.forEach(item => {
+            if(item.name === name) item.quantity = qty;
+        });
+    }
+    else
+    {
+        // ✅ QTY HIT 0 — REMOVE FROM SCREEN AND CART
+        card.remove();
+
+        cart = cart.filter(item => item.name !== name);
+
+        if(cart.length === 0)
+        {
+            cartContainer.innerHTML =
+            `<div class="empty-msg">🛒 Your cart is empty.<br>Go back and add items.</div>`;
+        }
+    }
+
+    // ✅ SYNC BACK TO sessionStorage so menu pages reflect the change
+    sessionStorage.setItem("restaurantCart", JSON.stringify(cart));
+    updateTotals();
+}
+
+// ✅ UPDATE BILL TOTALS
 
 function updateTotals()
 {
@@ -525,52 +525,142 @@ function updateTotals()
 
         let price =
         parseInt(
-          card.querySelector(".price")
-          .innerText.replace("₹","")
+            card.querySelector(".price")
+            .innerText.replace("₹","")
         );
 
         let qty =
         parseInt(
-          card.querySelector(".qty span")
-          .innerText
+            card.querySelector(".qty span")
+            .innerText
         );
 
         itemTotal += price * qty;
-
     });
 
-    let gst =
-    Math.round(itemTotal * 0.05);
+    let gst = Math.round(itemTotal * 0.05);
+    let serviceFee = itemTotal > 0 ? 25 : 0;
+    let grandTotal = itemTotal + gst + serviceFee;
 
-    let serviceFee =
-    itemTotal > 0 ? 25 : 0;
+    document.querySelector(".item-total").innerText = "₹" + itemTotal;
+    document.querySelector(".gst").innerText = "₹" + gst;
+    document.querySelector(".service-fee").innerText = "₹" + serviceFee;
+    document.querySelector(".grand-total").innerText = "₹" + grandTotal;
+}
 
-    let grandTotal =
-    itemTotal + gst + serviceFee;
+// ✅ TOGGLE ADDON MENU
 
+function toggleAddonMenu()
+{
+    let menu = document.getElementById("addonMenu");
+    menu.style.display =
+    (menu.style.display === "block") ? "none" : "block";
+}
 
-    document.querySelector(".item-total")
-    .innerText = "₹" + itemTotal;
+// ✅ ADD ADDON TO CART
 
-    document.querySelector(".gst")
-    .innerText = "₹" + gst;
+function addAddon(name, price)
+{
+    // Check if addon already exists
+    let existing = cart.find(item => item.name === name);
 
-    document.querySelector(".grand-total")
-    .innerText = "₹" + grandTotal;
+    if(existing)
+    {
+        existing.quantity++;
+        sessionStorage.setItem("restaurantCart", JSON.stringify(cart));
+        renderCart();
+    }
+    else
+    {
+        cart.push({
+            name: name,
+            price: "₹" + price,
+            image: "",
+            description: "Addon Item",
+            quantity: 1
+        });
+
+        sessionStorage.setItem("restaurantCart", JSON.stringify(cart));
+        renderCart();
+    }
+
+    document.getElementById("addonMenu").style.display = "none";
+}
+
+// ✅ PLACE ORDER
+
+function placeOrder()
+{
+    let customerData =
+    JSON.parse(sessionStorage.getItem("customerData")) || {};
+
+    let itemCards =
+    document.querySelectorAll(".card.item");
+
+    let items = [];
+    let itemTotal = 0;
+
+    itemCards.forEach(card => {
+
+        let name = card.querySelector(".item-details h3").innerText;
+        let price = parseInt(card.querySelector(".price").innerText.replace("₹",""));
+        let qty = parseInt(card.querySelector(".qty span").innerText);
+
+        if(qty > 0)
+        {
+            items.push({ name, price, qty });
+            itemTotal += price * qty;
+        }
+    });
+
+    let gst = Math.round(itemTotal * 0.05);
+    let serviceFee = itemTotal > 0 ? 25 : 0;
+    let grandTotal = itemTotal + gst + serviceFee;
+
+    // GET PAYMENT METHOD
+    let paymentRadios =
+    document.querySelectorAll('input[name="payment"]');
+    let paymentLabels = ["💵 Cash", "📱 UPI"];
+    let paymentMethod = "💵 Cash";
+    paymentRadios.forEach((radio, index) => {
+        if(radio.checked) paymentMethod = paymentLabels[index];
+    });
+
+    // GET ORDER TYPE
+    let orderRadios =
+    document.querySelectorAll('input[name="order_type"]');
+    let orderLabels = ["🍽️ Dine In", "🥡 Take Away"];
+    let orderType = "🍽️ Dine In";
+    orderRadios.forEach((radio, index) => {
+        if(radio.checked) orderType = orderLabels[index];
+    });
+
+    let orderId = "ORD-" + Date.now();
+
+    let orderData = {
+        customerName  : customerData.name  || "Walk-in Customer",
+        customerPhone : customerData.phone || "N/A",
+        customerEmail : customerData.email || "N/A",
+        orderId       : orderId,
+        orderDate     : new Date().toLocaleString(),
+        items         : items,
+        itemTotal     : "₹" + itemTotal,
+        gst           : "₹" + gst,
+        serviceFee    : "₹" + serviceFee,
+        grandTotal    : "₹" + grandTotal,
+        paymentMethod : paymentMethod,
+        orderType     : orderType
+    };
+
+    sessionStorage.setItem("latestOrder", JSON.stringify(orderData));
+
+    // ✅ CLEAR CART after placing order
+    sessionStorage.removeItem("restaurantCart");
+
+    window.location.href = "conformation.html";
 }
 
 </script>
-<script>
-
-console.log(
-  JSON.parse(
-    sessionStorage.getItem("restaurantCart")
-  )
-);
-
-</script>
-
-
 
 </body>
 </html>

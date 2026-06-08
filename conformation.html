@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html lang="en" style=""><head><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Receipt Detail - Desktop View</title>
+<!-- Tailwind CSS v3 CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style data-purpose="typography">
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+<style data-purpose="layout-adjustments">
+    /* Custom dashed border for the receipt tear effect */
+    .border-dashed-custom {
+      background-image: linear-gradient(to right, #d1d5db 50%, rgba(255,255,255,0) 0%);
+      background-position: bottom;
+      background-size: 10px 1px;
+      background-repeat: repeat-x;
+    }
+    /* Simple barcode generator simulation */
+    .barcode-container {
+      display: flex;
+      align-items: flex-end;
+      gap: 1px;
+      height: 40px;
+    }
+    .barcode-bar {
+      background-color: #000;
+      height: 100%;
+    }
+
+    /* Animation for the checkmark */
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .animate-blink {
+      animation: blink 2s ease-in-out infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .animate-blink {
+        animation: none;
+      }
+    }
+  </style>
+<link data-snapdom="injected-import" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/></head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+<!-- BEGIN: Desktop Layout Container -->
+<div class="max-w-4xl w-full bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row h-auto md:h-[700px] max-h-[95vh]" data-purpose="receipt-card">
+<!-- LEFT SIDE: Customer Information -->
+<div class="w-full md:w-5/12 border-b md:border-b-0 md:border-r border-gray-100 p-8 flex flex-col" data-purpose="customer-info-section">
+<div class="flex items-center gap-2 mb-8">
+<button aria-label="Go back" class="text-gray-600">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<h1 class="text-sm font-semibold text-gray-800">Scan Completed</h1>
+</div>
+<div class="space-y-6">
+<div>
+<h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Customer Information</h3>
+<div class="space-y-4">
+<div>
+<p class="text-[11px] text-gray-400">Customer Name</p>
+<p id="customerName" class="text-sm font-semibold text-gray-900">------</p>
+</div>
+<div>
+<p class="text-[11px] text-gray-400">Contact Details</p>
+<p id="customerPhone" class="text-sm font-semibold text-gray-900">+91----</p>
+</div>
+<div>
+<p class="text-[11px] text-gray-400">Order ID</p>
+<p id="orderId" class="text-sm font-semibold text-gray-900">------</p>
+</div>
+</div>
+</div>
+<div class="pt-6">
+<h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Store Location</h3>
+<p class="text-sm text-gray-600">Downtown Square Branch<br/>452 Coffee Ave, Suite 100<br/>Seattle, WA 98101</p>
+</div>
+</div>
+<div class="mt-auto hidden md:block pt-8"><div class="mb-6"><h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-emerald-500 animate-blink" style="font-size: 14px;">check_circle</span>Thank You</h3><p class="text-sm font-semibold text-gray-900">Thank You for choosing ZOHO KIOSK.</p><p class="text-[11px] text-gray-400 mt-1">We hope to see you again soon!</p></div>
+<p class="text-[10px] text-gray-400 leading-relaxed">This receipt was generated automatically. For questions regarding your order, please contact customer support or visit the store directly.</p>
+</div>
+</div>
+<!-- RIGHT SIDE: Receipt Details -->
+<div class="w-full md:w-7/12 flex flex-col relative">
+<!-- Header with close button -->
+<header class="flex items-center justify-end px-6 py-5" data-purpose="navigation-header">
+<button aria-label="Close" class="text-gray-600">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</header>
+<!-- Scrollable content area -->
+<div class="flex-1 overflow-y-auto px-10 pb-4">
+<!-- BEGIN: BrandLogoSection -->
+<div class="flex flex-col items-center mt-4 mb-6" data-purpose="brand-identity">
+<div class="w-16 h-16 mb-3 rounded-full flex items-center justify-center border border-gray-100 shadow-sm overflow-hidden">
+<img alt="Starbucks Logo" class="w-full h-full object-cover" src="https://play-lh.googleusercontent.com/rCD4Qevi1Q-vS8Ur1O2wRB4piYHMPIxAaQwthorpToQFSdX1GV1nziKKeM7ekBDk2A"/>
+</div>
+<h2 class="text-xl font-bold text-gray-900 leading-tight">ZOHO KIOSK </h2>
+<p id="receiptDate" class="text-[10px] text-gray-400 font-medium">---</p>
+</div>
+<!-- END: BrandLogoSection -->
+<!-- BEGIN: PaymentSummary -->
+<div class="flex justify-between items-center mb-6 pt-4 border-t border-gray-50" data-purpose="payment-summary">
+<span class="text-gray-900 font-bold text-lg">Total Payment</span>
+<span id="totalAmount" class="text-gray-900 font-bold text-lg">₹ 0</span>
+</div>
+<!-- END: PaymentSummary -->
+<!-- BEGIN: ItemizedList -->
+<div id="itemList" class="space-y-4 mb-8" data-purpose="line-items">
+</div>
+<!-- END: ItemizedList -->
+<hr class="border-t border-gray-100 mb-6"/>
+<!-- BEGIN: TaxesFees -->
+<div class="space-y-3 mb-10" data-purpose="extra-charges">
+<div class="flex justify-between text-[12px]">
+<span class="text-gray-400">Tip</span>
+<span class="text-gray-500">₹ 50</span>
+</div>
+<div class="flex justify-between text-[12px]">
+<span class="text-gray-400">Tax (5%)</span>
+<span class="text-gray-500">₹ 27</span>
+</div>
+<div class="flex justify-between text-[12px]">
+<span class="text-gray-400">Discount</span>
+<span class="text-gray-500">0</span>
+</div>
+
+<!--ADDING  PAYMENT METHOD-->
+  <div>
+   <p class="text-[11px] text-gray-400">Payment Method</p>
+   <p id="paymentMethod" class="text-sm font-semibold text-gray-900"></p>
+</div>
+
+<div>
+   <p class="text-[11px] text-gray-400">Order Type</p>
+   <p id="orderType" class="text-sm font-semibold text-gray-900"></p>
+</div>
+
+</div>
+<!-- END: TaxesFees -->
+<!-- BEGIN: BarcodeSection -->
+<div class="relative pt-6 pb-12" data-purpose="footer-barcode">
+<!-- Dashed Line Separator -->
+<div class="absolute top-0 left-[-40px] right-[-40px] border-b border-dashed border-gray-300"></div>
+<div class="flex flex-col items-center mt-10">
+<!-- Stylized Barcode -->
+<div class="barcode-container mb-4" id="barcode">
+<!-- Bars will be injected by script for visual effect -->
+</div>
+<p class="text-xs font-bold text-gray-800 tracking-[0.2em]">THANK YOU!</p>
+</div>
+</div>
+<!-- END: BarcodeSection -->
+</div>
+<!-- BEGIN: ActionButton -->
+<div class="px-10 py-8 bg-white" data-purpose="actions">
+<button class="w-full bg-[#10b981] hover:bg-emerald-600 text-white font-medium py-4 rounded-2xl transition-colors shadow-lg shadow-emerald-100/50">
+          Print Bill
+        </button>
+</div>
+<!-- END: ActionButton -->
+</div>
+</div>
+<!-- END: Layout Container -->
+<script data-purpose="barcode-generator">
+    // Simple logic to generate a variety of bar widths for the barcode look
+    const barcodeContainer = document.getElementById('barcode');
+    const pattern = [2, 1, 4, 2, 1, 3, 2, 1, 1, 4, 1, 2, 3, 1, 2, 2, 1, 4, 1, 2, 2, 1, 3, 2, 1, 4, 2, 1, 2, 1];
+    
+    pattern.forEach((width) => {
+      const bar = document.createElement('div');
+      bar.className = 'barcode-bar';
+      bar.style.width = `${width}px`;
+      barcodeContainer.appendChild(bar);
+      
+      // Add a gap
+      const gap = document.createElement('div');
+      gap.style.width = '2px';
+      barcodeContainer.appendChild(gap);
+    });
+
+          
+let receiptData =
+JSON.parse(
+    sessionStorage.getItem("latestOrder")
+);
+
+// Fill Customer Data
+if(receiptData){
+
+    document.getElementById("customerName").textContent =
+        receiptData.customerName || "Walk-in Customer";
+
+    document.getElementById("customerPhone").textContent =
+        receiptData.customerPhone || "N/A";
+
+    document.getElementById("orderId").textContent =
+        receiptData.orderId;
+
+    document.getElementById("totalAmount").textContent =
+        receiptData.grandTotal;
+
+    document.getElementById("receiptDate").textContent =
+        receiptData.orderDate;
+
+    document.getElementById("paymentMethod").textContent =
+receiptData.paymentMethod;
+
+document.getElementById("orderType").textContent =
+receiptData.orderType;
+
+}
+// Current Date & Time
+document.getElementById("receiptDate").textContent =
+    new Date().toLocaleString();
+
+// Fill Items
+const itemList = document.getElementById("itemList");
+
+receiptData.items.forEach(item => {
+
+    itemList.innerHTML += `
+        <div class="flex justify-between text-[13px]">
+            <div class="flex gap-4">
+                <span class="text-gray-500 w-48 truncate">
+                    ${item.name}
+                </span>
+                <span class="text-gray-400">
+                    x ${item.qty}
+                </span>
+            </div>
+            <span class="text-gray-500 font-medium">
+                ₹ ${item.price}
+            </span>
+        </div>
+    `;
+});
+
+
+  </script>
+</body></html>

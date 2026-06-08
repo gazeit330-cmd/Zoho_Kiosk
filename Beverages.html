@@ -4,589 +4,191 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Beverages Menu</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    background:#f8f0fc;
-    padding:25px;
-}
-
-.container{
-    background:white;
-    border-radius:24px;
-    padding:30px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
-}
-
-/* HEADER */
-
-.topbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:35px;
-}
-
-.logo{
-    font-size:38px;
-    font-weight:700;
-    color:#5b2c6f;
-}
-
-.logo span{
-    color:#8e44ad;
-    font-weight:400;
-}
-
-/* BANNER */
-
-.banner{
-    background:linear-gradient(to right,#6c3483,#8e44ad);
-    border-radius:24px;
-    padding:40px;
-    color:white;
-    margin-bottom:35px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:20px;
-}
-
-.banner h1{
-    font-size:42px;
-    margin-bottom:10px;
-}
-
-.banner p{
-    opacity:0.95;
-    line-height:1.6;
-    max-width:550px;
-}
-
-.offer-box{
-    background:white;
-    color:#8e44ad;
-    padding:18px 25px;
-    border-radius:18px;
-    font-size:20px;
-    font-weight:700;
-}
-
-/* SEARCH */
-
-.search-section{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:30px;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.search-box{
-    flex:1;
-    min-width:250px;
-    position: relative; /* Added to keep suggestions aligned inside the box */
-}
-
-.search-box input{
-    width:100%;
-    padding:16px 20px;
-    border-radius:14px;
-    border:2px solid #d7bde2;
-    outline:none;
-    font-size:15px;
-}
-
-/* Style for the suggestions container dropdown */
-#suggestions {
-    position: absolute;
-    width: 100%;
-    background: white;
-    z-index: 10;
-    border-radius: 0 0 14px 14px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    max-height: 200px;
-    overflow-y: auto;
-}
-
-.filter-btn{
-    background:#8e44ad;
-    color:white;
-    border:none;
-    padding:16px 28px;
-    border-radius:14px;
-    cursor:pointer;
-    font-weight:600;
-}
-
-.filter-btn:hover{
-    background:#6c3483;
-}
-
-/* FOOD GRID */
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:28px;
-}
-
-.card{
-    background:white;
-    border-radius:22px;
-    overflow:hidden;
-    border:1px solid #d7bde2;
-    transition:0.3s;
-    box-shadow:0 4px 14px rgba(0,0,0,0.06);
-}
-
-.card:hover{
-    transform:translateY(-6px);
-}
-
-.card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-}
-
-.card-content{
-    padding:22px;
-}
-
-.top-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:12px;
-}
-
-.food-name{
-    font-size:24px;
-    font-weight:600;
-    color:#5b2c6f;
-}
-
-.price{
-    color:#8e44ad;
-    font-size:22px;
-    font-weight:700;
-}
-
-.rating{
-    display:flex;
-    align-items:center;
-    gap:6px;
-    margin-bottom:12px;
-    color:#8e44ad;
-    font-weight:600;
-}
-
-.description{
-    color:#666;
-    line-height:1.6;
-    font-size:14px;
-    margin-bottom:18px;
-}
-
-.bottom-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.beverage-badge{
-    background:#eadcf4;
-    color:#5b2c6f;
-    padding:8px 14px;
-    border-radius:30px;
-    font-size:13px;
-    font-weight:600;
-}
-
-.order-btn{
-    background:#8e44ad;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    border-radius:12px;
-    cursor:pointer;
-    font-weight:600;
-}
-
-.order-btn:hover{
-    background:#6c3483;
-}
-
-/* FOOTER */
-
-.footer{
-    margin-top:40px;
-    
-    background:#5b2c6f;
-    color:white;
-    border-radius:20px;
-    padding:22px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:20px;
-}
-
-.footer-left{
-    display:flex;
-    gap:30px;
-    font-weight:500;
-}
-
-.footer-left a{
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    
-}
- 
-.footer-left a:hover{
-    color: #d7bde2;
-}
-
-
-.checkout-btn{
-    background:#8e44ad;
-    color:white;
-    border:none;
-    padding:16px 28px;
-    border-radius:14px;
-    font-size:16px;
-    font-weight:600;
-    cursor:pointer;
-}
-
-.checkout-btn:hover{
-    background:#6c3483;
-}
-
-/* QUANTITY BOX */
-
-.quantity-box{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  background:#f0e3f7;
-  padding:8px 14px;
-  border-radius:12px;
-  width:fit-content;
-}
-
-.quantity-btn{
-  width:32px;
-  height:32px;
-  border:none;
-  border-radius:8px;
-  background:#8e44ad;
-  color:white;
-  font-size:20px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.quantity-number{
-  font-size:18px;
-  font-weight:600;
-  min-width:20px;
-  text-align:center;
-  color:#14532d;
-}
-
-.suggestion-item{
-  padding:14px 18px;
-  cursor:pointer;
-  transition:0.3s;
-  border-bottom:1px solid #f1f1f1;
-}
-
-.suggestion-item:hover{
-  background:#dcfce7;
-}
-
+*{ margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+body{ background:#f8f0fc; padding:25px; }
+.container{ background:white; border-radius:24px; padding:30px; box-shadow:0 8px 25px rgba(0,0,0,0.08); }
+.topbar{ display:flex; justify-content:space-between; align-items:center; margin-bottom:35px; }
+.logo{ font-size:38px; font-weight:700; color:#5b2c6f; }
+.logo span{ color:#8e44ad; font-weight:400; }
+.banner{ background:linear-gradient(to right,#6c3483,#8e44ad); border-radius:24px; padding:40px; color:white; margin-bottom:35px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
+.banner h1{ font-size:42px; margin-bottom:10px; }
+.banner p{ opacity:0.95; line-height:1.6; max-width:550px; }
+.offer-box{ background:white; color:#8e44ad; padding:18px 25px; border-radius:18px; font-size:20px; font-weight:700; }
+.search-section{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:30px; gap:20px; flex-wrap:wrap; }
+.search-box{ flex:1; min-width:250px; position:relative; }
+.search-box input{ width:100%; padding:16px 20px; border-radius:14px; border:2px solid #d7bde2; outline:none; font-size:15px; }
+#suggestions{ position:absolute; width:100%; background:white; z-index:100; border-radius:0 0 14px 14px; box-shadow:0 4px 12px rgba(0,0,0,0.1); max-height:200px; overflow-y:auto; }
+.suggestion-item{ padding:14px 18px; cursor:pointer; transition:0.3s; border-bottom:1px solid #f1f1f1; font-size:15px; }
+.suggestion-item:hover{ background:#f3e5f5; }
+.filter-btn{ background:#8e44ad; color:white; border:none; padding:16px 28px; border-radius:14px; cursor:pointer; font-weight:600; }
+.filter-btn:hover{ background:#6c3483; }
+.cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px; }
+.card{ background:white; border-radius:22px; overflow:hidden; border:1px solid #d7bde2; transition:0.3s; box-shadow:0 4px 14px rgba(0,0,0,0.06); }
+.card:hover{ transform:translateY(-6px); }
+.card img{ width:100%; height:220px; object-fit:cover; }
+.card-content{ padding:22px; }
+.top-row{ display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+.food-name{ font-size:24px; font-weight:600; color:#5b2c6f; }
+.price{ color:#8e44ad; font-size:22px; font-weight:700; }
+.rating{ display:flex; align-items:center; gap:6px; margin-bottom:12px; color:#8e44ad; font-weight:600; }
+.description{ color:#666; line-height:1.6; font-size:14px; margin-bottom:18px; }
+.bottom-row{ display:flex; justify-content:space-between; align-items:center; }
+.beverage-badge{ background:#eadcf4; color:#5b2c6f; padding:8px 14px; border-radius:30px; font-size:13px; font-weight:600; }
+.quantity-box{ display:flex; align-items:center; gap:12px; background:#f0e3f7; padding:8px 14px; border-radius:12px; width:fit-content; }
+.quantity-btn{ width:32px; height:32px; border:none; border-radius:8px; background:#8e44ad; color:white; font-size:20px; font-weight:bold; cursor:pointer; }
+.quantity-number{ font-size:18px; font-weight:600; min-width:20px; text-align:center; color:#5b2c6f; }
+.footer{ margin-top:40px; background:#5b2c6f; color:white; border-radius:20px; padding:22px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
+.footer-left{ display:flex; gap:30px; font-weight:500; }
+.footer-left a{ text-decoration:none; color:white; font-weight:500; }
+.footer-left a:hover{ color:#d7bde2; }
+.checkout-btn{ background:#8e44ad; color:white; border:none; padding:16px 28px; border-radius:14px; font-size:16px; font-weight:600; cursor:pointer; }
+.checkout-btn:hover{ background:#6c3483; }
 </style>
-
 </head>
-
 <body>
-
 <div class="container">
 
-<div class="topbar">
-    <div class="logo">
-        <span>restaurant</span> BEVERAGES
-    </div>
-</div>
+  <div class="topbar">
+    <div class="logo"><span>restaurant</span> BEVERAGES</div>
+  </div>
 
-<div class="banner">
-
+  <div class="banner">
     <div>
-        <h1>Refreshing Beverages</h1>
-
-        <p>
-            Enjoy fresh juices, milkshakes, coffees and specialty drinks
-            prepared with premium ingredients and rich flavors.
-        </p>
+      <h1>Refreshing Beverages</h1>
+      <p>Enjoy fresh juices, milkshakes, coffees and specialty drinks prepared with premium ingredients and rich flavors.</p>
     </div>
+    <div class="offer-box">🥤 Hot & Cold</div>
+  </div>
 
-    <div class="offer-box">
-        Public 🥤 Hot & Cold
-    </div>
-
-</div>
-
-<div class="search-section">
-
+  <div class="search-section">
     <div class="search-box">
-        <input type="text" id="searchInput" oninput="searchFood()" placeholder="Search beverages...">
-        
-        <div id="suggestions"></div>
+      <input type="text" id="searchInput" oninput="searchFood()" placeholder="Search beverages...">
+      <div id="suggestions"></div>
     </div>
+    <button class="filter-btn">🔍 Filter</button>
+  </div>
 
-    <button class="filter-btn">
-        🔍 Filter
-    </button>
-
-</div>
-
-<div class="cards">
+  <div class="cards">
 
     <div class="card" data-name="cold coffee">
-
-        <img src="https://ikneadtoeat.com/wp-content/uploads/2021/08/cold-coffee-with-ice-cream-4.jpg" alt="Cold Coffee">
-
-        <div class="card-content">
-
-            <div class="top-row">
-                <div class="food-name">Cold Coffee</div>
-                <div class="price">₹180</div>
-            </div>
-
-            <div class="rating">⭐ 4.9</div>
-
-            <div class="description">
-                Rich and creamy cold coffee blended with ice cream and chocolate.
-            </div>
-
-            <div class="bottom-row">
-                <div class="beverage-badge">☕ COFFEE</div>
-                
-                <div class="quantity-box">
-
-              <button class="quantity-btn"
-                      onclick="decreaseQuantity(this)">
-                −
-              </button>
-
-              <div class="quantity-number">
-                0
-              </div>
-
-              <button class="quantity-btn"
-                      onclick="increaseQuantity(this)">
-                +
-              </button>
-
-            </div>
-
-            </div>
-
+      <img src="https://ikneadtoeat.com/wp-content/uploads/2021/08/cold-coffee-with-ice-cream-4.jpg" alt="Cold Coffee">
+      <div class="card-content">
+        <div class="top-row">
+          <div class="food-name">Cold Coffee</div>
+          <div class="price">₹180</div>
         </div>
-
+        <div class="rating">⭐ 4.9</div>
+        <div class="description">Rich and creamy cold coffee blended with ice cream and chocolate.</div>
+        <div class="bottom-row">
+          <div class="beverage-badge">☕ COFFEE</div>
+          <div class="quantity-box">
+            <button class="quantity-btn" onclick="decreaseQuantity(this)">−</button>
+            <div class="quantity-number">0</div>
+            <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="card" data-name="fresh orange juice">
-
-        <img src="https://saberhealth.com/wp-content/uploads/2024/09/orange-juice.jpg" alt="Orange Juice">
-
-        <div class="card-content">
-
-            <div class="top-row">
-                <div class="food-name">Fresh Orange Juice</div>
-                <div class="price">₹140</div>
-            </div>
-
-            <div class="rating">⭐ 4.8</div>
-
-            <div class="description">
-                Freshly squeezed orange juice packed with natural vitamins.
-            </div>
-
-            <div class="bottom-row">
-                <div class="beverage-badge">🍊 JUICE</div>
-
-                 <div class="quantity-box">
-
-              <button class="quantity-btn"
-                      onclick="decreaseQuantity(this)">
-                −
-              </button>
-
-              <div class="quantity-number">
-                0
-              </div>
-
-              <button class="quantity-btn"
-                      onclick="increaseQuantity(this)">
-                +
-              </button>
-
-            </div>
-            </div>
-
+      <img src="https://saberhealth.com/wp-content/uploads/2024/09/orange-juice.jpg" alt="Orange Juice">
+      <div class="card-content">
+        <div class="top-row">
+          <div class="food-name">Fresh Orange Juice</div>
+          <div class="price">₹140</div>
         </div>
-
+        <div class="rating">⭐ 4.8</div>
+        <div class="description">Freshly squeezed orange juice packed with natural vitamins.</div>
+        <div class="bottom-row">
+          <div class="beverage-badge">🍊 JUICE</div>
+          <div class="quantity-box">
+            <button class="quantity-btn" onclick="decreaseQuantity(this)">−</button>
+            <div class="quantity-number">0</div>
+            <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="card" data-name="oreo chocolate milkshake">
-
-        <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699" alt="Chocolate Milkshake">
-
-        <div class="card-content">
-
-            <div class="top-row">
-                <div class="food-name">Oreo Chocolate Milkshake</div>
-                <div class="price">₹220</div>
-            </div>
-
-            <div class="rating">⭐ 4.9</div>
-
-            <div class="description">
-                Thick and creamy chocolate milkshake topped with whipped cream.
-            </div>
-
-            <div class="bottom-row">
-                <div class="beverage-badge">🥤 SHAKE</div>
-
-                <div class="quantity-box">
-
-              <button class="quantity-btn"
-                      onclick="decreaseQuantity(this)">
-                −
-              </button>
-
-              <div class="quantity-number">
-                0
-              </div>
-
-              <button class="quantity-btn"
-                      onclick="increaseQuantity(this)">
-                +
-              </button>
-
-            </div>
-
-            </div>
-
+      <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699" alt="Chocolate Milkshake">
+      <div class="card-content">
+        <div class="top-row">
+          <div class="food-name">Oreo Chocolate Milkshake</div>
+          <div class="price">₹220</div>
         </div>
-
+        <div class="rating">⭐ 4.9</div>
+        <div class="description">Thick and creamy chocolate milkshake topped with whipped cream.</div>
+        <div class="bottom-row">
+          <div class="beverage-badge">🥤 SHAKE</div>
+          <div class="quantity-box">
+            <button class="quantity-btn" onclick="decreaseQuantity(this)">−</button>
+            <div class="quantity-number">0</div>
+            <button class="quantity-btn" onclick="increaseQuantity(this)">+</button>
+          </div>
+        </div>
+      </div>
     </div>
 
-</div>
+  </div>
 
-    
-
-<div class="footer">
-
+  <div class="footer">
     <div class="footer-left">
-        <a href="Restaurant_menu.html">🏠 Home</a>  
-        <div>📞 Staff</div>
-        <div>❓ Help</div>
+      <a href="Restaurant_menu.html">🏠 Home</a>
+      <div>❓ Help</div>
     </div>
-
-    
-    <a href="Place_order.html" >
-    <button class="checkout-btn">
-        🛒 View Cart
-    </button></a>
-    
+    <button class="checkout-btn" onclick="goToCheckout()">
+      🛒 View Cart (0)
+    </button>
+  </div>
 
 </div>
 
-</div>
-
-
-<script src="https://js.zohostatic.com/creator/widgets/version/1.0/widgetsdk-min.js"></script>
-
-<script>
-ZOHO.CREATOR.init().then(function() {
-    console.log("Creator Widget Ready");
-});
-</script>
-
 <script>
 
+// ✅ ALL FOOD ITEMS FOR SUGGESTIONS
 const foodItems = [
   "Cold Coffee",
   "Fresh Orange Juice",
   "Oreo Chocolate Milkshake"
 ];
 
+// ✅ SEARCH WITH SUGGESTIONS
 function searchFood()
 {
-    let input = document.getElementById("searchInput").value.toLowerCase().trim();
-    let suggestions = document.getElementById("suggestions");
+    let input =
+    document.getElementById("searchInput").value.toLowerCase();
+
+    let suggestions =
+    document.getElementById("suggestions");
+
     suggestions.innerHTML = "";
 
     let cards = document.querySelectorAll(".card");
 
-    // SHOW/HIDE CARDS
     cards.forEach(card => {
-      let foodName = card.getAttribute("data-name") || "";
-
-      if(foodName.includes(input))
-      {
-          card.style.display = "";
-      }
-      else
-      {
-          card.style.display = "none";
-      }
+        let foodName = card.getAttribute("data-name");
+        card.style.display =
+        (input === "" || foodName.includes(input)) ? "" : "none";
     });
 
-    // CLEAR IF EMPTY
-    if(input === "")
-    {
-        suggestions.innerHTML = "";
-        cards.forEach(card => {
-          card.style.display = "";
-        });
-        return;
-    }
+    if(input === "") return;
 
-    // DROPDOWN SUGGESTIONS
-    let filteredItems = foodItems.filter(item =>
-      item.toLowerCase().includes(input)
-    );
+    let filteredItems =
+    foodItems.filter(item => item.toLowerCase().includes(input));
 
     filteredItems.forEach(item => {
-      suggestions.innerHTML += `
+        suggestions.innerHTML += `
         <div class="suggestion-item" onclick="selectFood('${item}')">
-          ${item}
-        </div>
-      `;
+            ${item}
+        </div>`;
     });
 }
 
+// ✅ SELECT FROM SUGGESTION
 function selectFood(item)
 {
     document.getElementById("searchInput").value = item;
@@ -595,115 +197,101 @@ function selectFood(item)
     let cards = document.querySelectorAll(".card");
 
     cards.forEach(card => {
-      let foodName = card.getAttribute("data-name") || "";
-
-      if(foodName === item.toLowerCase())
-      {
-          card.style.display = "";
-      }
-      else
-      {
-          card.style.display = "none";
-      }
+        let foodName = card.getAttribute("data-name");
+        card.style.display =
+        (foodName === item.toLowerCase()) ? "" : "none";
     });
 }
 
-</script>
+// ✅ CART
+let cart =
+JSON.parse(sessionStorage.getItem("restaurantCart")) || [];
 
-
-<script>
-
-let cart = JSON.parse(sessionStorage.getItem("restaurantCart")) || [];
-
+// ✅ INCREASE QUANTITY
 function increaseQuantity(button)
 {
-    let quantityElement = button.parentElement.querySelector(".quantity-number");
+    let quantityElement =
+    button.parentElement.querySelector(".quantity-number");
+
     let quantity = parseInt(quantityElement.innerText);
     quantity++;
     quantityElement.innerText = quantity;
 
-    // CARD DETAILS
     let card = button.closest(".card");
     let name = card.querySelector(".food-name").innerText;
     let price = card.querySelector(".price").innerText;
     let image = card.querySelector("img").src;
     let description = card.querySelector(".description").innerText;
 
-    // REMOVE OLD ENTRY
     cart = cart.filter(item => item.name !== name);
+    cart.push({ name, price, image, description, quantity });
 
-    // ADD UPDATED ENTRY
-    cart.push({
-        name:name,
-        price:price,
-        image:image,
-        description:description,
-        quantity:quantity
-    });
-
-    // SAVE TO LOCAL STORAGE
     sessionStorage.setItem("restaurantCart", JSON.stringify(cart));
+    updateCartCount();
 }
 
+// ✅ DECREASE QUANTITY
 function decreaseQuantity(button)
 {
-    let quantityElement = button.parentElement.querySelector(".quantity-number");
+    let quantityElement =
+    button.parentElement.querySelector(".quantity-number");
+
     let quantity = parseInt(quantityElement.innerText);
 
-    if(quantity > 0)
-    {
-        quantity--;
-    }
+    if(quantity > 0) quantity--;
+
     quantityElement.innerText = quantity;
 
     let card = button.closest(".card");
     let name = card.querySelector(".food-name").innerText;
 
-    // UPDATE CART
     cart.forEach(item => {
-      if(item.name === name)
-      {
-          item.quantity = quantity;
-      }
+        if(item.name === name) item.quantity = quantity;
     });
 
-    // REMOVE ZERO QUANTITY ITEMS
     cart = cart.filter(item => item.quantity > 0);
 
     sessionStorage.setItem("restaurantCart", JSON.stringify(cart));
+    updateCartCount();
 }
 
-</script>
+// ✅ UPDATE CART COUNT ON BUTTON
+function updateCartCount()
+{
+    let totalItems = 0;
+    cart.forEach(item => { totalItems += item.quantity; });
 
-<script>
+    document.querySelector(".checkout-btn").innerText =
+    `🛒 View Cart (${totalItems})`;
+}
+
+// ✅ GO TO CHECKOUT
 function goToCheckout()
 {
     sessionStorage.setItem("restaurantCart", JSON.stringify(cart));
     window.location.href = "./Place_order.html";
 }
-</script>
 
-<script>
+// ✅ RESTORE QUANTITIES WHEN PAGE LOADS
 window.onload = function()
 {
-    let savedCart = JSON.parse(sessionStorage.getItem("restaurantCart")) || [];
+    let savedCart =
+    JSON.parse(sessionStorage.getItem("restaurantCart")) || [];
 
     savedCart.forEach(item => {
         document.querySelectorAll(".card").forEach(card => {
             let foodName = card.querySelector(".food-name").innerText;
-
             if(foodName === item.name)
             {
-                card.querySelector(".quantity-number").innerText = item.quantity;
+                card.querySelector(".quantity-number").innerText =
+                item.quantity;
             }
         });
     });
+
+    updateCartCount();
 }
 
-      
-
-
 </script>
-
 </body>
 </html>

@@ -167,6 +167,14 @@ backdrop-filter:blur(8px);
 
 
 }
+.addon-heading-link{
+    text-decoration:none;
+}
+
+.addon-heading-link h3{
+    text-decoration:none;
+}
+
 
 /* OFFER BUTTON */
 
@@ -275,6 +283,125 @@ transform:translateY(-2px);
     grid-template-columns:1fr 1fr 1fr;
     gap:15px;
     padding:15px;
+}
+
+/* LOWER SECTION NEW DESIGN */
+
+.special-card{
+    border-radius:20px;
+    overflow:hidden;
+    padding:20px;
+    background:white;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    border:1px solid #ececec;
+}
+
+.breads-card{
+    border-top:6px solid #f39c12;
+}
+
+.addons-card{
+    border-top:6px solid #27ae60;
+}
+
+.combo-card{
+    border-top:6px solid #e74c3c;
+    border-radius:20px;
+    padding:20px;
+    background:white;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.section-subtitle{
+    font-size:13px;
+    color:#777;
+    margin-top:6px;
+    margin-bottom:18px;
+}
+
+.fancy-item{
+    background:#fafafa;
+    border-radius:14px;
+    padding:10px;
+    margin-bottom:12px;
+    transition:0.3s;
+}
+
+.fancy-item:hover{
+    transform:translateY(-2px);
+    background:#f5f5f5;
+}
+
+.fancy-item img{
+    width:60px;
+    height:60px;
+    border-radius:12px;
+    object-fit:cover;
+}
+
+.view-all-btn{
+    display:block;
+    margin-top:18px;
+    text-align:center;
+    padding:14px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.breads-btn{
+    background:#fff3cd;
+    color:#b9770e;
+}
+
+.breads-btn:hover{
+    background:#f9e79f;
+}
+
+.addons-btn{
+    background:#d4efdf;
+    color:#1e8449;
+}
+
+.addons-btn:hover{
+    background:#abebc6;
+}
+
+/* COMBO DESIGN */
+
+.combo-box{
+    margin-top:18px;
+}
+
+.combo-item{
+    background:#fff5f5;
+    border-left:5px solid #e74c3c;
+    padding:14px;
+    border-radius:14px;
+    margin-bottom:14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.combo-item h4{
+    margin:0;
+    font-size:15px;
+    color:#222;
+}
+
+.combo-item p{
+    margin-top:4px;
+    font-size:12px;
+    color:#777;
+}
+
+.combo-item span{
+    font-weight:700;
+    color:#e74c3c;
+    font-size:16px;
 }
 
 .badge {
@@ -607,7 +734,7 @@ transform:translateY(-2px);
 <!-- TABS -->
 <div class="tabs">
 
-<a href="starter.html"class="tab-link">
+<a href="Starter.html"class="tab-link">
     <div class="tab green">STARTERS</div>
 </a>
 
@@ -634,7 +761,7 @@ transform:translateY(-2px);
 <h3>STARTERS</h3>
 
 <!-- ITEM 1 -->
-<a href="starter.html" class="item-link">
+<a href="Starter.html" class="item-link">
 
 <div class="item">
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqW0QGM008WTOWF8ElqgwCovcfzYLEZTrYjYBT1IEqexpOY-TOu4k54Ho4QF2eV16gSH6qnlHN6JXXI8d76KjxfvHtrCz76ACvVFe-dq0&s=10">
@@ -650,7 +777,7 @@ transform:translateY(-2px);
 </a>
 
 <!-- ITEM 2 -->
-<a href="starter.html" class="item-link">
+<a href="Starter.html" class="item-link">
 
 <div class="item">
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTifumYVKj0zGMWoQ8fOHhRaQnovgqJzL-SyJDGgtfp0On3rSsbJzkLV4E7ECOPz4oA1-BBjW1NNaxFLr0Z3Y3qrdYk_vdF1HW-dZ-pJfQ&s=10">
@@ -666,7 +793,7 @@ transform:translateY(-2px);
 </a>
 
 <!-- ITEM 3 -->
-<a href="starter.html" class="item-link">
+<a href="Starter.html" class="item-link">
 
 <div class="item">
 <img src="https://images.unsplash.com/photo-1544025162-d76694265947">
@@ -682,7 +809,7 @@ transform:translateY(-2px);
 </a>
 
 <!-- ITEM 4 -->
-<a href="starter.html" class="item-link">
+<a href="Starter.html" class="item-link">
 
 <div class="item">
 <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950">
@@ -698,7 +825,7 @@ transform:translateY(-2px);
 </a>
 
 <!-- VIEW ALL -->
-<a href="starter.html" class="view-all">
+<a href="Starter.html" class="view-all">
     View All →
 </a>
 
@@ -712,7 +839,7 @@ transform:translateY(-2px);
 <h3>MAIN COURSE</h3>
 
 <!-- ITEM 1 -->
-<a href="main-course.html" class="item-link">
+<a href="Main_course.html" class="item-link">
 
 <div class="item">
 <img src="https://www.indianveggiedelight.com/wp-content/uploads/2020/04/veg-biryani-instant-pot.jpg">
@@ -728,7 +855,7 @@ transform:translateY(-2px);
 </a>
 
 <!-- ITEM 2 -->
-<a href="main-course.html" class="item-link">
+<a href="Main_course.html" class="item-link">
 
 <div class="item">
 <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2023/04/butter-chicken-recipe.jpg">
@@ -744,7 +871,7 @@ transform:translateY(-2px);
 </a>
 
 <!-- ITEM 3 -->
-<a href="main-course.html" class="item-link">
+<a href="Main_course.html" class="item-link">
 
 <div class="item">
 <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
@@ -760,7 +887,7 @@ transform:translateY(-2px);
 </a>
 
 <!-- ITEM 4 -->
-<a href="main-course.html" class="item-link">
+<a href="Main_course.html" class="item-link">
 
 <div class="item">
 <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19">
@@ -776,7 +903,7 @@ transform:translateY(-2px);
 </a>
 
 <!-- VIEW ALL -->
-<a href="main-course.html" class="view-all">
+<a href="Main_course.html" class="view-all">
     View All →
 </a>
 
@@ -788,7 +915,7 @@ transform:translateY(-2px);
 <h3>DESSERTS</h3>
 
 <!-- ITEM 1 -->
-<a href="Dessert.html" class="item-link">
+<a href="Desserts.html" class="item-link">
 
 <div class="item">
 <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb">
@@ -804,7 +931,7 @@ transform:translateY(-2px);
 </a>
 
 <!-- ITEM 2 -->
-<a href="Dessert.html" class="item-link">
+<a href="Desserts.html" class="item-link">
 
 <div class="item">
 <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c">
@@ -820,7 +947,7 @@ transform:translateY(-2px);
 </a>
 
 <!-- ITEM 3 -->
-<a href="Dessert.html" class="item-link">
+<a href="Desserts.html" class="item-link">
 
 <div class="item">
 <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b">
@@ -835,8 +962,8 @@ transform:translateY(-2px);
 
 </a>
 
-<!-- ITEM 4 -->
-<a href="Dessert.html" class="item-link">
+<!-- ITEM 4 --> 
+<a href="Desserts.html" class="item-link">
 
 <div class="item">
 <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814">
@@ -852,7 +979,7 @@ transform:translateY(-2px);
 </a>
 
 <!-- VIEW ALL -->
-<a href="Dessert.html" class="view-all">
+<a href="Desserts.html" class="view-all">
     View All →
 </a>
 
@@ -941,12 +1068,19 @@ transform:translateY(-2px);
 <div class="lower-grid">
 
 <!-- BREADS -->
-<div class="card">
 
-<h3 class="badge">🫓 BREADS</h3>
+<div class="card special-card breads-card">
+
+<h3 class="badge">🫓 FRESH BREADS</h3>
+
+<p class="section-subtitle">
+Freshly baked breads served hot from the kitchen
+</p>
 
 <a href="Breads_roti.html" class="item-link">
-<div class="item">
+
+<div class="item fancy-item">
+
 <img src="https://maayeka.com/wp-content/uploads/2025/10/butter-naan-tawa-naan-1-of-1-500x500.jpg">
 
 <div>
@@ -955,11 +1089,15 @@ transform:translateY(-2px);
 </div>
 
 <div class="price">₹60</div>
+
 </div>
+
 </a>
 
 <a href="Breads_roti.html" class="item-link">
-<div class="item">
+
+<div class="item fancy-item">
+
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJTMLAzGVbGTxAsBZ6d_wzun2_FPRaLj9KUA&s">
 
 <div>
@@ -968,11 +1106,15 @@ transform:translateY(-2px);
 </div>
 
 <div class="price">₹80</div>
+
 </div>
+
 </a>
 
 <a href="Breads_roti.html" class="item-link">
-<div class="item">
+
+<div class="item fancy-item">
+
 <img src="https://www.cookwithmanali.com/wp-content/uploads/2021/07/Tandoori-Roti-500x500.jpg">
 
 <div>
@@ -981,53 +1123,129 @@ transform:translateY(-2px);
 </div>
 
 <div class="price">₹40</div>
+
 </div>
+
+</a>
+
+<a href="Breads_roti.html" class="view-all-btn breads-btn">
+View All Breads →
 </a>
 
 </div>
 
 
 <!-- ADD-ONS -->
-<div class="card">
 
-<h3>➕ ADD-ONS</h3>
+<div class="card special-card addons-card">
 
-<div class="item">
-<div>Extra Cheese</div>
+<a href="Place_order.html" class="addon-heading-link">
+
+    <h3 class="badge">➕ ADD-ONS</h3>
+
+</a>
+
+<p class="addon-subtitle">
+    Enhance your meal with delicious extras
+</p>
+
+<p class="section-subtitle">
+Enhance your meal with delicious extras
+</p>
+
+<a href="Place_order.html" class="item-link">
+
+<div class="item fancy-item">
+
+<img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707">
+
+<div>
+<div class="item-title">Extra Cheese</div>
+<div class="item-desc">Creamy cheese topping</div>
+</div>
+
 <div class="price">₹30</div>
+
 </div>
 
-<div class="item">
-<div>Extra Rice</div>
-<div class="price">₹40</div>
+</a>
+
+<a href="Place_order.html" class="item-link">
+
+<div class="item fancy-item">
+
+<img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f">
+
+<div>
+<div class="item-title">Extra Butter</div>
+<div class="item-desc">Fresh melted butter</div>
 </div>
 
-<div class="item">
-<div>Extra Butter</div>
 <div class="price">₹20</div>
+
 </div>
+
+</a>
+
+<a href="Place_order.html" class="item-link">
+
+<div class="item fancy-item">
+
+<img src="https://images.unsplash.com/photo-1512058564366-18510be2db19">
+
+<div>
+<div class="item-title">Extra Rice</div>
+<div class="item-desc">Steamed basmati rice</div>
+</div>
+
+<div class="price">₹40</div>
+
+</div>
+
+</a>
+
+<!-- VIEW ALL BUTTON -->
+
+<a href="Place_order.html" class="view-all-btn addons-btn">
+➕ Open Add-On Menu →
+</a>
 
 </div>
 
 
 <!-- POPULAR COMBOS -->
-<div class="card">
+
+<div class="card combo-card">
 
 <h3 class="badge">🔥 POPULAR COMBOS</h3>
 
-<div class="item">
-<div>Paneer Tikka + Biryani</div>
-<div class="price">₹399</div>
+<div class="combo-box">
+
+<div class="combo-item">
+<div>
+<h4>Paneer Tikka + Biryani</h4>
+<p>Perfect Veg Combo</p>
 </div>
 
-<div class="item">
-<div>Chicken + Butter Chicken</div>
-<div class="price">₹499</div>
+<span>₹399</span>
 </div>
 
-<div class="item">
-<div>Naan + Paneer Masala</div>
-<div class="price">₹349</div>
+<div class="combo-item">
+<div>
+<h4>Chicken + Butter Chicken</h4>
+<p>Protein Special</p>
+</div>
+
+<span>₹499</span>
+</div>
+
+<div class="combo-item">
+<div>
+<h4>Naan + Paneer Masala</h4>
+<p>Chef Recommendation</p>
+</div>
+
+<span>₹349</span>
 </div>
 
 </div>
@@ -1042,7 +1260,7 @@ transform:translateY(-2px);
  <!--   <div class="home">🏠 Home</div>-->
     <div class="help">ℹ️ Help</div>
    <a href="Place_order.html" class="cart-link">
-    <div class="cart">🛒 View Cart (3)</div>
+    <div class="cart">🛒 View Cart </div>
 </a>
 </div>
 
